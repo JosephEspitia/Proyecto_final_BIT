@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+.bg-yellow-tucode {
+    background-color: #ffc107;
+}
+
+.bg-bluelight-tucode {
+    background-color: #328cc1;
+}
+
+.bg-bluedark-tucode {
+    background-color: #0B3C5D;
+}
+
+.bg-medium-tucode {
+    background-color: #1D2731;
+}
+
+.font-yellow-tucode {
+    color: #ffc107;
+}
+
+.font-bluelight-tucode {
+    color: #328cc1;
+}
+
+.font-bluedark-tucode {
+    color: #0B3C5D;
+}
+
+.font-medium-tucode {
+    color: #1D2731;
+}
