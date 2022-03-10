@@ -8,6 +8,7 @@ const userSchema = new Schema(
     email: {type:String, requires:true},
     password: {type:String, requires:true},
     passwordConfirm: {type:String, requires:true},
+    photoUser: { type: String, required: false, default: `image not available` },
     actualCourse: {type:String, requires:true},
     goals: {type:Array, requires:false},
     permissions: {
