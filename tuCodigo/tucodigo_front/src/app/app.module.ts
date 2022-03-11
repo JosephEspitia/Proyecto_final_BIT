@@ -40,7 +40,7 @@ import { ContactComponent } from './Components/contact/contact.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
