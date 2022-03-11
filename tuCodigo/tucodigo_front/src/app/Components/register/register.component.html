@@ -1,1 +1,95 @@
-<p>register works!</p>
+<div class="container-fluid bg-register">
+  <div class="row shadow-lg rounded mt-5 p-5 d-">
+    <div class="col-md-4 shadow-lg p-3 ms-5">
+      <h2 class="text-center mb-4 mt-5 text-white animated pulse">Ingrea tus datos</h2>
+
+      <form #userForm="ngForm" (ngSubmit)="registerUser(userForm)" class="mb-3 ">
+        <div class="mb-3 animated bounceInRight">
+          <label for="name" class="form-label text-white">Nombres</label>
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="emailHelp"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="userService.selectedUser.name"
+          />
+        </div>
+
+        <div class="mb-3 animated bounceInLeft">
+          <label for="name" class="form-labe text-white">Apellidos</label>
+          <input
+            type="text"
+            class="form-control "
+            aria-describedby="emailHelp"
+            name="lastName"
+            #lastName="ngModel"
+            [(ngModel)]="userService.selectedUser.lastName"
+          />
+        </div>
+
+        <div class="mb-3 animated bounceInRight">
+          <label for="exampleInputEmail1" class="form-label text-white"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="userService.selectedUser.email"
+          />
+          <div id="emailHelp" class="form-text">
+            Tu información no será compartida con nadie más.
+          </div>
+        </div>
+
+        <label for="inputPassword5" class="form-label text-white animated bounceInRight"
+          >Contraseña</label
+        >
+        <input
+          type="password"
+          id="inputPassword5"
+          class="form-control animated bounceInLeft"
+          aria-describedby="passwordHelpBlock"
+          name="password"
+          #password="ngModel"
+          [(ngModel)]="userService.selectedUser.password"
+        />
+        <div id="passwordHelpBlock" class="form-text text-white">
+          Tu constraseña debe tener de 8 a 20 caracteres de longitud, puede
+          contener letras números, no debe contener espacios, caracteres
+          especiales o emojis.
+        </div>
+
+        <label for="inputPassword5" class="form-label text-white mt-3 animated bounceInRight"
+          >Confirmar Contraseña</label
+        >
+        <input
+          type="password"
+          id="inputPassword5"
+          class="form-control animated bounceInRight"
+          aria-describedby="passwordHelpBlock"
+          name="passwordConfirm"
+          #passwordConfirm="ngModel"
+          [(ngModel)]="userService.selectedUser.passwordConfirm"
+        />
+
+        <button
+          class="btn btn-warning mt-4 d-flex align-items-center justify-content-center"
+        >
+          Enviar información
+        </button>
+      </form>
+    </div>
+    <div class="col-md-5 me-5 align-self-end ms-auto p-2 bd-highlight animated bounceInDown">
+      <h2 class="text-white">
+        La actividad más importante que un ser humano puede lograr es aprender
+        para entender, porque entender es ser libre.
+      </h2>
+      <p class="text-white ms-5">-Baruch Spinoza</p>
+    </div>
+  </div>
+</div>

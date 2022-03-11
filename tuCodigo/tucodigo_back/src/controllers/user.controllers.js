@@ -53,9 +53,9 @@ const getUsers = async (req, res) => {
     try {
       const { email, password } = req.body;
   
-      if (!email || !password) throw "Uno o mas campos estan vacios";
-  
       const user = await User.findOne({ email });
+
+      if (!email || !password) return res.status(401).send('El nombre o el correo no existen');
   
       if(user){
         if (password === user.password) {
@@ -82,7 +82,7 @@ const getUsers = async (req, res) => {
   
       throw "Usuario no existe";
     } catch (err) {
-      res.status(401).json({ err });
+      res.status(401).json({err});
     }
   };
 
