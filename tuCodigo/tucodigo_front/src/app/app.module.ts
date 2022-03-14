@@ -36,7 +36,6 @@ import { ContactComponent } from './Components/contact/contact.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgForm,
     HttpClientModule,
     FormsModule,
   ],
