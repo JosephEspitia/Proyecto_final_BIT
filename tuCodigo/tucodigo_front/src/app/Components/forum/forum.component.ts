@@ -27,7 +27,7 @@ export class ForumComponent implements OnInit {
   }
 
 
-  /*  createForum(form: NgForm) {
+  /* createForum(form: NgForm) {
     const { forumUser, forumEmail, forumTitle, forumTags, ForumContent } = form.value
     if (!forumUser || !forumEmail || !forumTitle || !ForumContent) {
       return Swal.fire({icon: 'error',title: 'Oops...',text: 'No puedes dejar campos obligatorios vacios', confirmButtonColor: '#ffc107' })
@@ -48,7 +48,7 @@ export class ForumComponent implements OnInit {
       this.forumService.selectedForum.forumTags = []
       this.forumService.selectedForum.ForumContent = ''
     })
-  } */
+  } */ 
  
     
 
