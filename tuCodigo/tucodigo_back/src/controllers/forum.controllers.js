@@ -5,7 +5,7 @@ env.config();
 
 const getForum = async (req, res) => {
     const forums = await Forum.find();
-    //console.log(req.params, req.query)
+    //console.log(forums)
     res.status(200).json(forums);
   };
 

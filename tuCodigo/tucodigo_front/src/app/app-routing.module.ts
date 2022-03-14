@@ -11,6 +11,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ProfileStudentComponent } from './Components/profile-student/profile-student.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'java-script-course', component: JavaScriptCourseComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'profile-student', component: ProfileStudentComponent },
+  { path: 'forumAns', component: ForumAnsComponent }
+
   
 ];
 

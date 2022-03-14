@@ -16,6 +16,8 @@ import { CssCourseComponent } from './Components/css-course/css-course.component
 import { JavaScriptCourseComponent } from './Components/java-script-course/java-script-course.component';
 import { ForumComponent } from './Components/forum/forum.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ContactComponent } from './Components/contact/contact.component';
     CssCourseComponent,
     JavaScriptCourseComponent,
     ForumComponent,
-    ContactComponent
+    ContactComponent,
+    ForumAnsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { ContactComponent } from './Components/contact/contact.component';
     FormsModule,
     HttpClientModule,
     FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
