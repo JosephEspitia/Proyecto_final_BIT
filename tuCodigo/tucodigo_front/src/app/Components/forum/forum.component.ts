@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ForumService } from 'src/app/Services/forum.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
