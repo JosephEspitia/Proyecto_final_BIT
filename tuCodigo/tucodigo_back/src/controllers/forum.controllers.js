@@ -40,6 +40,16 @@ const getForum = async (req, res) => {
     }
   };
 
+  const updateAnswer = async (req, res) => {
+    try {
+      const id = req.params.forumId;
+      const updated = await Forum.findByIdAndUpdate(id, { $push: req.body });
+      res.status(201).json(updated);
+    } catch (error) {
+      res.status(201).json({ msj: "Actualizacion fallida", error });
+    }
+  };
+
   const deleteForum = async (req, res) => {
     const id = req.params.forumId;
     
@@ -53,6 +63,7 @@ const getForum = async (req, res) => {
       getOneForum,
       createForum,
       deleteForum,
-      updateForum
+      updateForum,
+      updateAnswer
 
   }

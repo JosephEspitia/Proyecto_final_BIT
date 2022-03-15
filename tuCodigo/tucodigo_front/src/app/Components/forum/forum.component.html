@@ -8,28 +8,29 @@
     <form #formForum="ngForm" class="m-4">
       <div class="form-group m-2">
         <label for="Name" class="fs-5 bg-title" style="color: antiquewhite">Nombre o Usuario</label>
-        <input type="name" class="form-control inputstl" name="forumUser" #forumUser="ngModel"
+        <input type="name" class="form-control inputstl fs-5" name="forumUser" #forumUser="ngModel"
           [(ngModel)]="forumService.selectedForum.forumUser">
       </div>
       <div class="form-group m-2">
         <label for="Email1" class="fs-5 bg-title" style="color: antiquewhite">Correo Electrónico</label>
-        <input type="email" class="form-control inputstl" name="forumEmail" #forumEmail="ngModel"
+        <input type="email" class="form-control inputstl fs-5" name="forumEmail" #forumEmail="ngModel"
           [(ngModel)]="forumService.selectedForum.forumEmail">
       </div>
-      <div class="form-group m-2" class="fs-5 bg-title" style="color: antiquewhite">r
+      <div class="form-group m-2" class="fs-5 bg-title" style="color: antiquewhite">
         <label for="name">Título de tu pregunta</label>
-        <input type="text" class="form-control inputstl" name="forumTitle" #forumTitle="ngModel"
+        <input type="text" class="form-control inputstl fs-5" name="forumTitle" #forumTitle="ngModel"
           [(ngModel)]="forumService.selectedForum.forumTitle">
       </div>
       <div class="form-group m-2 fs-5">
        
-        <textarea name="txtMsg" class="form-control inputstl" placeholder="Escribe aqui Tu pregunta*"
+        <textarea name="txtMsg" class="form-control inputstl fs-5" placeholder="Escribe aqui Tu pregunta*"
           style="width: 100%; height: 150px;" name="ForumContent" #ForumContent="ngModel"
           [(ngModel)]="forumService.selectedForum.ForumContent"></textarea>
 
       </div>
+     
 
-      <a class="btn btn-warning fs-5" style="color: #1D2731">Registrar pregunta</a>
+      <a class="btn btn-warning fs-5" style="color: #1D2731" (click)="createForum(formForum)">Registrar pregunta</a>
 
       <!-- (click)="createForum(formForum)" -->
     </form>
@@ -42,12 +43,21 @@
 
     <div class="card m-5 inputstl1" *ngFor="let forum of forumService.forums">
       <div class="card-body">
-        <h5 class="card-title fs-3" style="color:#328cc1">{{forum.forumTitle}}</h5>
+        <h5 class="card-title fs-3" style="color:#328cc1"> <svg xmlns="http://www.w3.org/2000/svg" width="40"
+          height="40" fill="currentColor" class="bi bi-pin-fill" viewBox="0 0 16 16">
+          <path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 
+          7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z" />
+      </svg>{{forum.forumTitle}}</h5>
         <hr>
-        <p class="card-text fs-5">{{forum.ForumContent}}</p>
-        <p class="card-text">Etiquetas: {{forum.forumTags}}</p>
+        <p class="card-text fs-4">{{forum.ForumContent}}</p>
+        <p class="card-text" > <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-tags-fill" viewBox="0 0 16 16" style="color: deeppink;">
+          <path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+          <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
+        </svg> <span *ngFor="let tag of forum.forumTags" >  {{tag}}   </span></p>
+        
+        
         <div class="d-flex justify-content-between">
-          <a href="#" class="btn btn-warning" >Ver respuestas</a>
+          <a href="/forumAns/{{forum._id}}" class="btn btn-warning" style="color: #1D2731; font-weight: bold;" >Ver respuestas</a>
           <a href="#" class="btn btn-warning" style="color: #1D2731; font-weight: bold;">Haz tu aporte</a>        </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/Models/user.model';
 
 @Component({
   selector: 'app-profile-student',
@@ -13,9 +14,9 @@ export class ProfileStudentComponent implements OnInit {
   ngOnInit(): void {
     /* this.getUsers() */
   }
-/* getUsers() {
+ /* getUsers() {
   this.userService.getUsers().subscribe(
-    (data) => {this.userService.user}
+    (data) => {this.userService.selectedUser.}
   )
-} */
+}  */
 }

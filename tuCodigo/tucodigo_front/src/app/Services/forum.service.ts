@@ -30,5 +30,9 @@ getForum(){
 createForum(formForum: Forum) {
   return this.http.post(`${this.url_api}/create-forum`, formForum);
 }
+
+updateAnswer(answer:any){
+  return this.http.put(`${this.url_api}/update-answer/${answer.id}`, {ForumAnswers:answer.text});
+}
 }
 
