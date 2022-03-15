@@ -10,14 +10,15 @@
         <div class="card-body" *ngIf="idForum === forum._id">
             <h5 class="card-title fs-3" style="color:#328cc1"><svg xmlns="http://www.w3.org/2000/svg" width="40"
                     height="40" fill="currentColor" class="bi bi-pin-fill" viewBox="0 0 16 16">
-                    <path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 
+                    <path
+                        d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 
                     7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z" />
                 </svg>{{forum.forumTitle}}</h5>
             <hr>
             <p class="card-text fs-4">{{forum.ForumContent}}</p>
             <!-- <p class="card-text" style="background-color: rgb(232, 144, 191);">Etiquetas: {{forum.forumTags}}</p> -->
             <p class="card-text fs-4" style="color:rgb(34, 37, 194)"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                    height="16" fill="currentColor"  class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                    height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                     <path fill-rule="evenodd"
@@ -42,7 +43,19 @@
                 <a href="/forum" class="btn btn-warning" style="color: #1D2731; font-weight: bold;">Volver al foro</a>
                 <a href="#" class="btn btn-warning" style="color: #1D2731; font-weight: bold;">Haz tu aporte</a>
             </div>
+
+
             <!-- texto,id-->
         </div>
     </div>
+    <!-- <form class="m-5" >
+       
+      
+        <div class="form-group m-2 fs-5" #textAnswer="">
+
+            <input type="text" class="form-control inputstl fs-5" name="textAnswer" #textAnswer="">
+        </div>
+        <a href="#" class="btn btn-warning" style="color: #1D2731; font-weight: bold;" (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
+    </form> -->
+
 </section>

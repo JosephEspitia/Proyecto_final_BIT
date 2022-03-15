@@ -9,7 +9,7 @@ import { environment } from "src/environments/environment";
 
 export class ForumService {
 // 622b9d694bf7ee934366a3b6 622ba06c4bf7ee934366a3b9 622e961ca0408604498e59f8
-  testID = `622b9d694bf7ee934366a3b6`
+ 
   selectedForum: Forum
   forums: any
   url_api = `${environment.API_URL}/forum`
