@@ -12,11 +12,12 @@ export class ProfileStudentComponent implements OnInit {
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
-    /* this.getUsers() */
+  this.getUsers()
   }
- /* getUsers() {
-  this.userService.getUsers().subscribe(
-    (data) => {this.userService.selectedUser.}
-  )
-}  */
+
+  getUsers() {
+    this.userService.getUsers().subscribe((res) => {
+      this.userService.userLists = res as User[];
+    });
+  }
 }
