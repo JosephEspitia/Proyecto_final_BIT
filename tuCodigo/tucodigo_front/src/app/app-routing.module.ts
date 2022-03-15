@@ -9,6 +9,7 @@ import { HtmlCourseComponent } from './Components/html-course/html-course.compon
 import { JavaScriptCourseComponent } from './Components/java-script-course/java-script-course.component';
 import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
 import { ProfileStudentComponent } from './Components/profile-student/profile-student.component';
 import { RegisterComponent } from './Components/register/register.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'java-script-course', component: JavaScriptCourseComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'profile-student', component: ProfileStudentComponent },
+  { path: 'profile-admin', component: ProfileAdminComponent}
   
 ];
 

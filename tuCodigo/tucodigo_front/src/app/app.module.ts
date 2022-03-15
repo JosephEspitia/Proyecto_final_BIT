@@ -16,6 +16,7 @@ import { CssCourseComponent } from './Components/css-course/css-course.component
 import { JavaScriptCourseComponent } from './Components/java-script-course/java-script-course.component';
 import { ForumComponent } from './Components/forum/forum.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContactComponent } from './Components/contact/contact.component';
     CssCourseComponent,
     JavaScriptCourseComponent,
     ForumComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+.main-form {
+    border-radius: 2px;
+    border: solid 3px #ffc107;
+    position:absolute;
+    margin: auto;
+    width:fit-content;
+    margin-left: 40%;
+    margin-top: 30%;
+}
+
+
