@@ -82,7 +82,9 @@ export class ProfileAdminComponent implements OnInit {
       if (result.isConfirmed) {
         this.userService.putUser(_id, form.value).subscribe({
           next: (res:any)=>{  
+          Swal.fire({title:'El usuario ha sido actualizado actualizado', confirmButtonColor:'#ffc107'})
           this.getUsuar()
+          this.resetForm()
         },
         error: (err:any)=> {
           console.log(err);
@@ -123,7 +125,7 @@ export class ProfileAdminComponent implements OnInit {
   }
 
   //solicitudes de vista de popUps
-  resetForm(form: NgForm) {
+  resetForm() {
     return (this.openUp = false);
   }
   showSolicitudUpFun() {
