@@ -1,0 +1,27 @@
+.content {
+    height: 200px;
+}
+
+.main-form {
+    border-radius: 3px;
+    border-top: solid 20px #ffc107;
+    border-left: solid 20px #ffc107;
+}
+
+.content-bg {
+    background-image: url('../../../assets/img/undraw.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-position-y: 300px;
+    height: 600px;
+    width: 400px;
+}
+
+@media (min-width:401px) and (max-width:767px) {
+   .content-bg {
+       width: 0;
+       height: 0;
+   }
+    
+}
