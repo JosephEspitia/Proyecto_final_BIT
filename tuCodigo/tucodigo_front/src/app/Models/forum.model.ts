@@ -6,6 +6,7 @@ export class Forum {
   forumTags: string[];
   ForumContent: string;
   ForumAnswers: string[];
+  answerContent:string;
 
   constructor(
     _id = ``,
@@ -14,7 +15,8 @@ export class Forum {
     forumTitle = ``,
     forumTags = [],
     ForumContent = ``,
-    ForumAnswers = []
+    ForumAnswers = [],
+    answerContent=``,
   ) {
     this._id = _id;
     this.forumUser = forumUser;
@@ -23,5 +25,6 @@ export class Forum {
     this.forumTags = forumTags;
     this.ForumContent = ForumContent;
     this.ForumAnswers = ForumAnswers;
+    this.answerContent =answerContent
   }
 }

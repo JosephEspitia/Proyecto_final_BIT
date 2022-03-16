@@ -38,14 +38,32 @@ idForum : string
     this.router.navigate([`/forum`])
   }
 
-  updateAnswer(text: string, id:string){
-    this.forumService.updateAnswer({id,text}).subscribe(res => {
+ /*  updateAnswer(form:NgForm){
+    const {_id, ForumAnswers} = form.value
+    this.forumService.updateAnswer(_id, ForumAnswers).subscribe(res => {
       console.log(res)
-    })
-
-
+    })    
+  } */
+  updateAnswer( id:string, form: NgForm){
+    this.forumService.updateAnswer({id,text:form.value.textAnswer}).subscribe(res => {
+      console.log(res)
+      this.getForum()
+    })    
     
+   console.log(id,form.value)
   }
+
+  popupAnswer : boolean=false
+
+  popupAnswerF(){
+    if (this.popupAnswer==false){
+     return this.popupAnswer=true 
+          }
+    else {
+      return this.popupAnswer=false
+    }
+  }
+  
 
 }
 

@@ -4,7 +4,18 @@
 
     <h2 class="ms-3 fs-1 bg-title" style="color: #ecf00d">Respuestas</h2>
 
-    <div class="card m-5 inputstl1" *ngFor="let forum of forumService.forums">
+    <div class="main-form animated fadeInUp" *ngIf="popupAnswer">
+        <form class="m-5" #textAnswer="ngForm">
+            <div class="form-group m-2 fs-5">
+                <textarea type="text" class="form-control inputstl fs-5" name="textAnswer" #textAnswer="ngModel"
+                    [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
+            </div>
+            <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;"
+                (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
+        </form>
+    </div>
+
+    <div class="card m-5" *ngFor="let forum of forumService.forums">
         <div class="card-body" *ngIf="idForum === forum._id">
             <h5 class="card-title fs-3" style="color:#328cc1"><svg xmlns="http://www.w3.org/2000/svg" width="40"
                     height="40" fill="currentColor" class="bi bi-pin-fill" viewBox="0 0 16 16">
@@ -23,8 +34,10 @@
                         d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                 </svg> Propuestas de solución <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                    <path fill-rule="evenodd"
+                        d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                    <path fill-rule="evenodd"
+                        d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
                 </svg> </p>
             <p *ngFor="let answers of forum.ForumAnswers" class="fs-5"><svg xmlns="http://www.w3.org/2000/svg"
                     width="32" height="32" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
@@ -37,21 +50,23 @@
 
             <div class="d-flex justify-content-between">
                 <a href="/forum" class="btn btn-warning" style="color: #1D2731; font-weight: bold;">Volver al foro</a>
-                <a href="#" class="btn btn-warning" style="color: #1D2731; font-weight: bold;">Haz tu aporte</a>
+                <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;" (click)="popupAnswerF()">Haz tu
+                    aporte</a>
             </div>
-
-
-            <!-- texto,id-->
         </div>
     </div>
-    <!-- <form class="m-5" >
-       
-      
-        <div class="form-group m-2 fs-5" #textAnswer="">
 
-            <input type="text" class="form-control inputstl fs-5" name="textAnswer" #textAnswer="">
-        </div>
-        <a href="#" class="btn btn-warning" style="color: #1D2731; font-weight: bold;" (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
-    </form> -->
+   <!--  <div class="main-form animated fadeInUp" *ngIf="popupAnswer">
+        <form class="m-5" #textAnswer="ngForm">
+            <div class="form-group m-2 fs-5">
+                <textarea type="text" class="form-control inputstl fs-5" name="textAnswer" #textAnswer="ngModel"
+                    [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
+            </div>
+            <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;"
+                (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
+        </form>
+    </div> -->
+
+
 
 </section>
