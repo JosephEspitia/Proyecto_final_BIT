@@ -52,7 +52,7 @@
 				
 			</a>
 			<ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-			  <div class="navbar-nav"  >
+			  <div class="navbar-nav" ngIf="userService.loggedIn()">
 				<li><a class="dropdown-item" href="#">Inicio de sesion</a></li>
 				<li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
 				<li><a class="dropdown-item" href="#">Registrarme</a></li>
@@ -61,7 +61,7 @@
 			  
 			</ul>			
 					  
-				<div class="navbar-nav ms-auto" >
+				<div class="navbar-nav ms-auto" ngIf="!userService.loggedIn() ;else usserLogged" >
 				  <a class="btn btn-outline-light m-2" href="/login">Iniciar Sesion</a>
 				  <a class="btn btn-outline-light m-2" href="/register">Registrarse</a>
 				</div>
@@ -75,26 +75,12 @@
 						  <li><button class="dropdown-item" type="button">Opciones</button></li>
 						  <li><button class="dropdown-item" type="button">Mis Cursos</button></li>
 						  <hr>
-						  <li><button class="dropdown-item" type="button">Cerrar Sesion</button></li>
+						  <li><button class="dropdown-item" type="button" (click)="userService.loggedOut()">Cerrar Sesion</button></li>
 						</ul>
 					</div>
 				</ng-template>
 		  
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		</div>
 	</div>
