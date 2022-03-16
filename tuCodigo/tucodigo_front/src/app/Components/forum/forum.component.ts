@@ -41,6 +41,7 @@ export class ForumComponent implements OnInit {
         showConfirmButton: true,
         confirmButtonColor: '#ffc107'
       })
+      this.getForum()
 
       this.forumService.selectedForum.forumUser = ''
       this.forumService.selectedForum.forumEmail = ''
