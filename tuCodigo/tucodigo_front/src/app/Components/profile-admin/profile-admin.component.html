@@ -1,13 +1,13 @@
-<div class="bg-bluedark-tucode" style="height:100vh">
+<div class="bg-bluedark-tucode">
   <div class="animated fadeInDown container main-container d-flex flex-row flex-wrap row">
     <!-- style="width: 280px;" -->
     <div
-      class="col-md-3 p-3 text-white bg-medium-tucode"  style="height:100vh"
+      class="col-md-3 p-3 text-white bg-medium-tucode main-menu"  style="height:100vh"
     >
       <h2 class="fs-4 text-center">TuCodigo.Com</h2>
       <hr style="background-color: white; height: 3px" />
   
-      <ul class="nav nav-pills flex-column mb-auto">
+      <ul class="nav nav-pills flex-column mb-auto main-ul">
         <li
           (click)="showTablef()"
           class="text-center text-white btn elemento_valor"
@@ -33,9 +33,9 @@
       <!-- tabla de usuarios -->
     <div
       *ngIf="showTable"
-      class="main-table table-responsive-sm col-md-5 animated fadeInLeft"
+      class="main-table table-responsive-sm col-md-5 animated fadeInLeft "
     >
-      <table class="table table-striped">
+      <table class="table table-striped main-table">
         <thead>
           <th class="text-center bg-medium-tucode text-white">ID</th>
           <th class="text-center bg-medium-tucode text-white">
@@ -49,12 +49,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let element of userService.userLists">
-            <td class="text-white">{{ element._id }}</td>
-            <td class="text-white">{{ element.name }}</td>
-            <td class="text-white">{{ element.lastName }}</td>
-            <td class="text-white">{{ element.email }}</td>
-            <td class="text-white">{{ element.actualCourse }}</td>
-            <td class="text-white">
+            <td data-label="ID" class="text-white">{{ element._id }}</td>
+            <td data-label="Nombre" class="text-white">{{ element.name }}</td>
+            <td data-label="Apellido" class="text-white">{{ element.lastName }}</td>
+            <td data-label="Email" class="text-white">{{ element.email }}</td>
+            <td data-label="Curso" class="text-white">{{ element.actualCourse }}</td>
+            <td data-label="Permisos" class="text-white">
               <span><b>Administración:</b></span> {{ element.permissionsAdmin}}
               <br />
               <span><b>Acceso Cliente:</b></span>
