@@ -1,23 +1,19 @@
 <p>forum-ans works!</p>
 
 <section class="bg-foruma">
-
     <h2 class="ms-3 fs-1 bg-title" style="color: #ecf00d">Respuestas</h2>
+   
+    <form class="m-5 main-form animated fadeInUp d-flex align-self-center"  #textAnswer="ngForm" *ngIf="popupAnswer">
+        <div class="form-group m-2 fs-5">
+            <textarea type="text"  class="form-control fs-5" name="textAnswer" #textAnswer="ngModel"
+                [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
+        </div>
+        <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;"
+            (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
+    </form> 
 
-    <div class="main-form animated fadeInUp" *ngIf="popupAnswer">
-        <form class="m-5" #textAnswer="ngForm">
-            <div class="form-group m-2 fs-5">
-                <textarea type="text"  class="form-control inputstl fs-5" name="textAnswer" #textAnswer="ngModel"
-                    [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
-            </div>
-            <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;"
-                (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
-        </form>
-    </div>
-      
-
-    <div class="card m-5" *ngFor="let forum of forumService.forums">
-        <div class="card-body" *ngIf="idForum === forum._id">
+    <div class="card m-5 " *ngFor="let forum of forumService.forums">
+         <div class="card-body" *ngIf="idForum === forum._id">
             <h5 class="card-title fs-3" style="color:#328cc1"><svg xmlns="http://www.w3.org/2000/svg" width="40"
                     height="40" fill="currentColor" class="bi bi-pin-fill" viewBox="0 0 16 16">
                     <path
@@ -52,21 +48,15 @@
                 <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;" (click)="popupAnswerF()">Haz tu
                     aporte</a>
             </div>
-            
         </div>
-        <div class="main-form animated fadeInUp" *ngIf="popupAnswer">
-            <form class="m-5" #textAnswer="ngForm">
-                <div class="form-group m-2 fs-5">
-                    <textarea type="text"  class="form-control inputstl fs-5" name="textAnswer" #textAnswer="ngModel"
-                        [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
-                </div>
-                <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;"
-                    (click)="updateAnswer(idForum,textAnswer)">enviar respuesta</a>
-            </form>
-        </div>
-    </div>
-    
+      
+        
 
+    </div>
+
+  <!-- <div class="main-form animated fadeInUp" *ngIf="popupAnswer"> -->
+    
+<!-- </div> -->
 
 
 </section>
