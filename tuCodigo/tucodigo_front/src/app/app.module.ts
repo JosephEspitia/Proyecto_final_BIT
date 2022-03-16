@@ -18,6 +18,7 @@ import { ForumComponent } from './Components/forum/forum.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 import { CommonModule } from '@angular/common';
+import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CommonModule } from '@angular/common';
     JavaScriptCourseComponent,
     ForumComponent,
     ContactComponent,
-    ForumAnsComponent
+    ForumAnsComponent,
+    ProfileAdminComponent
   ],
   imports: [
     BrowserModule,

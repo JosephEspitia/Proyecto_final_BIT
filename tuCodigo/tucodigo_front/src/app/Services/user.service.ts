@@ -29,8 +29,10 @@ export class UserService {
     return this.http.post(`${this.url_api}/create-user`, formUser);
   }
 
-  putUser(_id: any, newElm: any) {
-    return this.http.post(`${this.url_api}/update-user/${_id}`, newElm);
+  putUser(_id: any, element:any) {
+     console.log(element);
+    
+    return this.http.put(`${this.url_api}/update-user/${_id}`, element);
   }
 
   deleteUser(_id: any) {

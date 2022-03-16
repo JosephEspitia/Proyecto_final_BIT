@@ -11,11 +11,10 @@ const userSchema = new Schema(
     passwordConfirm: {type:String, requires:true},
     actualCourse: {type:String, requires:true},
     goals: {type:Array, requires:false},
-    permissions: {
-        admin: {type: Boolean, default: false},
-        client: {type: Boolean, default: true},
-        verified: {type: Boolean, default: false}
-    }
+    permissionsAdmin: { type:Boolean, requires:false, default: false},
+    permissionsClient: { type:Boolean, requires:false, default: true},
+    permissionsVerified: {type:Boolean, require:false, default: false}
+       
 },
 {
     versionKey: false,

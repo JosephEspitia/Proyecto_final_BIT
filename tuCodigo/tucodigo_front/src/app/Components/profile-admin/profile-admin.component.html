@@ -1,0 +1,382 @@
+<div class="bg-bluedark-tucode">
+  <div class="animated fadeInDown container main-container d-flex flex-row flex-wrap row">
+    <!-- style="width: 280px;" -->
+    <div
+      class="col-md-3 p-3 text-white bg-medium-tucode main-menu"  style="height:100vh"
+    >
+      <h2 class="fs-4 text-center">TuCodigo.Com</h2>
+      <hr style="background-color: white; height: 3px" />
+  
+      <ul class="nav nav-pills flex-column mb-auto main-ul">
+        <li
+          (click)="showTablef()"
+          class="text-center text-white btn elemento_valor"
+        >
+          Usuarios Registrados
+  
+          <hr style="background-color: white; height: 3px" />
+        </li>
+        <li (click)="showSolicitudf()" class="text-center m-2 text-white btn">
+          Solicitudes Recibidas
+          <hr style="background-color: white; height: 3px" />
+        </li>
+        <li (click)="showCoursesf()" class="text-center m-2 text-white btn">
+          Administrar Cursos
+          <hr style="background-color: white; height: 3px" />
+        </li>
+        <li (click)="showForumf()" class="text-center m-2 text-white btn">
+          Administrar Foros
+          <hr style="background-color: white; height: 3px" />
+        </li>
+      </ul>
+    </div>
+      <!-- tabla de usuarios -->
+    <div
+      *ngIf="showTable"
+      class="main-table table-responsive-sm col-md-5 animated fadeInLeft "
+    >
+      <table class="table table-striped main-table">
+        <thead>
+          <th class="text-center bg-medium-tucode text-white">ID</th>
+          <th class="text-center bg-medium-tucode text-white">
+            Nombre de Usuario
+          </th>
+          <th class="text-center bg-medium-tucode text-white">Apellido</th>
+          <th class="text-center bg-medium-tucode text-white">Email</th>
+          <th class="text-center bg-medium-tucode text-white">curso Actual</th>
+          <th class="text-center bg-medium-tucode text-white">Permisos</th>
+          <th class="bg-medium-tucode text-center text-white">Opciones</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of userService.userLists">
+            <td data-label="ID" class="text-white">{{ element._id }}</td>
+            <td data-label="Nombre" class="text-white">{{ element.name }}</td>
+            <td data-label="Apellido" class="text-white">{{ element.lastName }}</td>
+            <td data-label="Email" class="text-white">{{ element.email }}</td>
+            <td data-label="Curso" class="text-white">{{ element.actualCourse }}</td>
+            <td data-label="Permisos" class="text-white">
+              <span><b>Administración:</b></span> {{ element.permissionsAdmin}}
+              <br />
+              <span><b>Acceso Cliente:</b></span>
+              {{ element.permissionsClient}}
+              <br />
+              <span><b>Cli. Verificado:</b></span>
+              {{ element.permissionsVerified}}
+            </td>
+            <td class="text-white">
+              <a class="btn btn-danger m-2" (click)="deleteUser(element._id)">
+                Borrar
+              </a>
+              <a class="btn btn-primary m-2" (click)="upDateUser(element)">
+                Editar</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <form
+      *ngIf="openUp"
+      class="animated fadeInDown bg-medium-tucode main-form align-self-center  mt-5 shadow-lg rounded d-flex flex-column justify-content-center align-items-center p-3"
+      #updateForm="ngForm"
+      (ngSubmit)="addUser(userService.selectedUser._id,updateForm)"
+    >
+      <h3 class="text-white text-center">Formato de Edición</h3>
+  
+      <div class="m-2">
+        <label class="text-white" for="name">Nombre</label>
+        <div>
+          <input
+            type="text"
+            name="name"
+            id=""
+            #name="ngModel"
+            [(ngModel)]="userService.selectedUser.name"
+          />
+        </div>
+      </div>
+  
+      <div class="m-2">
+        <label class="text-white" for="lastName">Apellido</label>
+        <div>
+          <input
+            type="text"
+            name="lastName"
+            id=""
+            #lastName="ngModel"
+            [(ngModel)]="userService.selectedUser.lastName"
+          />
+        </div>
+      </div>
+  
+      <div class="m-2">
+        <label class="text-white me-2" for="email">Correo </label>
+        <div>
+          <input
+            type="email"
+            name="email"
+            id=""
+            #email="ngModel"
+            [(ngModel)]="userService.selectedUser.email"
+          />
+        </div>
+      </div>
+  
+      <div class="m-2">
+        <label class="text-white form-label me-2" for="permissions"
+          >Permisos de ADMIN</label
+        >
+        <input
+          class=""
+          type="checkbox"
+          list="drawFiles"
+          name="permissionsAdmin"
+          id=""
+          [(ngModel)]="userService.selectedUser.permissionsAdmin"
+          #permissionsAdmin="ngModel"
+        />
+      </div>
+  
+      <div class="m-2">
+        <label class="text-white form-label me-2" for="permissions"
+          >Permisos de Cliente</label
+        >
+        <input
+          class=""
+          type="checkbox"
+          list="drawFiles"
+          name="permissionsClient"
+          id=""
+          [(ngModel)]="userService.selectedUser.permissionsClient"
+          #permissionsClient="ngModel"
+        />
+      </div>
+  
+      <div class="m-2">
+        <label class="text-white form-label me-2" for="permissions"
+          >Cuenta verificada</label
+        >
+        <input
+          class=""
+          type="checkbox"
+          list="drawFiles"
+          name="permissionsVerified"
+          id=""
+          [checked]="userService.selectedUser.permissionsVerified"
+          [(ngModel)]="userService.selectedUser.permissionsVerified"
+          #permissionsVerified="ngModel"
+          
+        />
+      </div>
+      <div class="align-self-center">
+        <button class="btn btn-light m-2" 
+        >
+          Guardar
+        </button>
+        <button
+          class="btn btn-light m-2"
+          (click)="resetForm()"
+        >
+          Cerrar
+        </button>
+      </div>
+    </form>
+    <!-- fin tabla de usuarios -->
+  
+  <!-- solicitudes recibidas -->
+  <div
+    *ngIf="showSolicitud"
+    class="main-table table-responsive-sm col-md-9 animated fadeInLeft"
+  >
+    <table class="table table-striped">
+      <thead>
+        <th class="text-center bg-medium-tucode text-white">ID</th>
+        <th class="text-center bg-medium-tucode text-white">
+          Nombre de Contacto
+        </th>
+        <th class="text-center bg-medium-tucode text-white">Email</th>
+        <th class="text-center bg-medium-tucode text-white">Teléfono</th>
+        <th class="text-center bg-medium-tucode text-white">Contenido</th>
+        <th class="bg-medium-tucode text-center text-white">Opciones</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-white">123</td>
+          <td class="text-white">nombrefalse</td>
+          <td class="text-white">123@123</td>
+          <td class="text-white">123</td>
+          <td class="text-white">comentario de prueba</td>
+          <td class="text-white">
+            <a class="btn btn-danger m-2"> Borrar </a>
+            <a (click)="showSolicitudUpFun()" class="btn btn-primary m-2">
+              Responder</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <form
+    *ngIf="showSolicitudUp"
+    class="animated fadeInDown bg-medium-tucode main-form align-self-center col-md-3 mt-5 shadow-lg rounded d-flex flex-column justify-content-start align-items-stretch p-3"
+  >
+    <h3 class="text-white text-center">Ingresa una respuesta</h3>
+    <input type="text" name="ans" />
+  
+    <button class="btn btn-light m-2">Envíar</button>
+    <button (click)="showSolicitudUpFun()" class="btn btn-light m-2">
+      Cerrar
+    </button>
+  </form>
+  
+  <!-- fin solicitudes recibidas -->
+  
+  <!-- solicitud de foros -->
+  <div
+    *ngIf="showforum"
+    class="main-table table-responsive-sm col-md-9 animated fadeInLeft"
+  >
+    <table class="table table-striped">
+      <thead>
+        <th class="text-center bg-medium-tucode text-white">ID</th>
+        <th class="text-center bg-medium-tucode text-white">titulo del foro</th>
+        <th class="text-center bg-medium-tucode text-white">
+          administrar etiquetas
+        </th>
+        <th class="text-center bg-medium-tucode text-white">
+          contenido del foro
+        </th>
+        <th class="text-center bg-medium-tucode text-white">
+          respuestas del foro
+        </th>
+        <th class="bg-medium-tucode text-center text-white">Opciones</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-white">123</td>
+          <td class="text-white">¿pregunta de prueba?</td>
+          <td class="text-white">'css', 'class</td>
+          <td class="text-white">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus,
+            dignissimos sapiente laborum deleniti dicta a ad quasi? Atque at,
+            accusamus, ea veniam rerum, quod sint commodi illo inventore mollitia
+            consectetur.
+          </td>
+          <td class="text-white">comentario de prueba</td>
+          <td class="text-white">
+            <a class="btn btn-danger m-2"> Borrar </a>
+            <a (click)="showforumUpFun()" class="btn btn-primary m-2">
+              Editar</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <form
+    *ngIf="showforumUp"
+    class="animated fadeInDown bg-medium-tucode main-form align-self-center col-md-3 mt-5 shadow-lg rounded d-flex flex-column justify-content-start align-items-stretch p-3"
+  >
+    <h3 class="text-white text-center">Editar Entrada</h3>
+    <div class="m-2">
+      <label class="text-white form-label me-2" for="forumTitle"
+        >Editar titulo del foro</label
+      >
+      <input
+        class=""
+        type="text"
+        list="drawFiles"
+        name="forumTitle"
+      />
+    </div>
+  
+    <div class="m-2">
+      <label class="text-white form-label me-2" for="forumTags"
+        >Modificar Etiquetas</label
+      >
+      <input
+        class=""
+        type="text"
+        list="drawFiles"
+        name="forumTags"
+      />
+    </div>
+  
+    <div class="m-2">
+      <label class="text-white form-label me-2" for="forumContent"
+        >Editar contenido</label
+      >
+      <input
+        class=""
+        type="text"
+        list="drawFiles"
+        name="forumContent"
+      />
+    </div>
+  
+    <button class="btn btn-light m-2">Envíar</button>
+    <button (click)="showforumUpFun()" class="btn btn-light m-2">
+      Cerrar
+    </button>
+  </form>
+  
+  <!-- fin solicitud de foros -->
+  
+  <!-- administrar cursos -->
+  
+  <div
+    *ngIf="showCourses"
+    class="main-table table-responsive-sm col-md-9 animated fadeInLeft"
+  >
+  <table class="table table-striped">
+    <thead>
+      <th class="text-center bg-medium-tucode text-white">ID</th>
+      <th class="text-center bg-medium-tucode text-white">
+        Nombre de curso
+      </th>
+      <th class="text-center bg-medium-tucode text-white">Temario</th>
+      <th class="text-center bg-medium-tucode text-white">Contenido</th>
+      <th class="bg-medium-tucode text-center text-white">Ejemplos</th>
+      <th class="bg-medium-tucode text-center text-white">Preguntas</th>
+      <th class="bg-medium-tucode text-center text-white">Opciones</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-white">123</td>
+        <td class="text-white">HTML</td>
+        <td class="text-white"><p>etiquetas</p>
+            <p>Clases</p>
+            <p>Formularios</p>
+            <p>tipo de inputs</p>
+        </td>
+        <td class="text-white">123</td>
+        <td class="text-white">ejemplo de prueba</td>
+        <td class="text-white">¿esta es una prueba?</td>
+        <td class="text-white">
+          <a class="btn btn-danger m-2"> Borrar </a>
+          <a  class="btn btn-primary m-2">
+            Editar</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <!-- administrar cursos -->
+  
+  </div>
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+</div>
