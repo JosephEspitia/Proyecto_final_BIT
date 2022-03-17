@@ -1,4 +1,4 @@
-.main-form {
+/* .main-form {
     border-radius: 2px;
     border: solid 3px #ffc107;
     position:fixed;
@@ -6,6 +6,16 @@
     width:fit-content;
     margin-left: 40%;
     margin-top: 30%;
+} */
+
+.main-form {
+    position:fixed !important; /* lo deja fijo en un parte de la pantalla */
+    top: 10% !important;
+    left: 50% !important;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    border: solid 3px #ffc107 ;
 }
 *{
     box-sizing: border-box;
@@ -63,6 +73,16 @@
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
+    }
+
+    .main-form {
+        position:fixed !important; /* lo deja fijo en un parte de la pantalla */
+        top: 10% !important;
+        left: 30% !important;
+        width: fit-content;
+        height: fit-content;
+        padding: 5px;
+        border: solid 3px #ffc107 ;
     }
 }
 

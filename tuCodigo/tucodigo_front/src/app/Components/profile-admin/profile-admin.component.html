@@ -76,112 +76,7 @@
       </table>
     </div>
   
-    <form
-      *ngIf="openUp"
-      class="animated fadeInDown bg-medium-tucode main-form align-self-center  mt-5 shadow-lg rounded d-flex flex-column justify-content-center align-items-center p-3"
-      #updateForm="ngForm"
-      (ngSubmit)="addUser(userService.selectedUser._id,updateForm)"
-    >
-      <h3 class="text-white text-center">Formato de Edición</h3>
-  
-      <div class="m-2">
-        <label class="text-white" for="name">Nombre</label>
-        <div>
-          <input
-            type="text"
-            name="name"
-            id=""
-            #name="ngModel"
-            [(ngModel)]="userService.selectedUser.name"
-          />
-        </div>
-      </div>
-  
-      <div class="m-2">
-        <label class="text-white" for="lastName">Apellido</label>
-        <div>
-          <input
-            type="text"
-            name="lastName"
-            id=""
-            #lastName="ngModel"
-            [(ngModel)]="userService.selectedUser.lastName"
-          />
-        </div>
-      </div>
-  
-      <div class="m-2">
-        <label class="text-white me-2" for="email">Correo </label>
-        <div>
-          <input
-            type="email"
-            name="email"
-            id=""
-            #email="ngModel"
-            [(ngModel)]="userService.selectedUser.email"
-          />
-        </div>
-      </div>
-  
-      <div class="m-2">
-        <label class="text-white form-label me-2" for="permissions"
-          >Permisos de ADMIN</label
-        >
-        <input
-          class=""
-          type="checkbox"
-          list="drawFiles"
-          name="permissionsAdmin"
-          id=""
-          [(ngModel)]="userService.selectedUser.permissionsAdmin"
-          #permissionsAdmin="ngModel"
-        />
-      </div>
-  
-      <div class="m-2">
-        <label class="text-white form-label me-2" for="permissions"
-          >Permisos de Cliente</label
-        >
-        <input
-          class=""
-          type="checkbox"
-          list="drawFiles"
-          name="permissionsClient"
-          id=""
-          [(ngModel)]="userService.selectedUser.permissionsClient"
-          #permissionsClient="ngModel"
-        />
-      </div>
-  
-      <div class="m-2">
-        <label class="text-white form-label me-2" for="permissions"
-          >Cuenta verificada</label
-        >
-        <input
-          class=""
-          type="checkbox"
-          list="drawFiles"
-          name="permissionsVerified"
-          id=""
-          [checked]="userService.selectedUser.permissionsVerified"
-          [(ngModel)]="userService.selectedUser.permissionsVerified"
-          #permissionsVerified="ngModel"
-          
-        />
-      </div>
-      <div class="align-self-center">
-        <button class="btn btn-light m-2" 
-        >
-          Guardar
-        </button>
-        <button
-          class="btn btn-light m-2"
-          (click)="resetForm()"
-        >
-          Cerrar
-        </button>
-      </div>
-    </form>
+   
     <!-- fin tabla de usuarios -->
   
   <!-- solicitudes recibidas -->
@@ -220,26 +115,7 @@
     </table>
   </div>
   
-  <form
-    id="formcontactAnswer"
-    #answerForm="ngForm"
-    (ngSubmit)="ansContact(contactService.selectedContact._id,answerForm)"
-    *ngIf="showSolicitudUp"
-    class="animated fadeInDown bg-medium-tucode main-form align-self-center col-md-3 mt-5 shadow-lg rounded d-flex flex-column justify-content-start align-items-stretch p-3"
-  >
-  <!-- (ngSubmit)="ansContact(contactService.selectedContact._id,answerForm)" -->
-    <h3 class="text-white text-center mb-5">Ingresa una respuesta</h3>
-    <textarea class="form-control" required="true" name="contactAnswers" id="" cols="30" rows="8" #contactAswers="ngModel"
-    [(ngModel)]="contactService.selectedContact.contactAnswers" style="resize:none"></textarea>
-    <!-- <input type="text" name="contactAnswers" #contactAswers="ngModel"
-    [(ngModel)]="contactService.selectedContact.contactAnswers"> -->
-  
-    <button form="formcontactAnswer" class="btn btn-light m-2" >Envíar</button>
-    <button (click)="showSolicitudUpFun()" class="btn btn-light m-2">
-      Cerrar
-    </button>
-  </form>
-  
+ 
   <!-- fin solicitudes recibidas -->
   
   <!-- solicitud de foros -->
@@ -281,61 +157,7 @@
       </tbody>
     </table>
   </div>
-  <!--  forumulario de foros -->
-  <form
-  #formAdminForum="ngForm"
-  (ngSubmit)="editForum(forumService.selectedForum._id, formAdminForum)"
-    *ngIf="showforumUp"
-    class="animated fadeInDown bg-medium-tucode main-form align-self-center col-md-3 mt-5 shadow-lg rounded d-flex flex-column justify-content-start align-items-stretch p-3"
-  >
-    <h3 class="text-white text-center">Editar Entrada</h3>
-    <div class="m-2">
-      <label class="text-white form-label me-2" for="forumTitle"
-        >Editar titulo del foro</label
-      >
-      <input
-        class=""
-        type="text"
-        list="drawFiles"
-        name="forumTitle"
-        #forumTitle="ngModel"
-        [(ngModel)]="forumService.selectedForum.forumTitle"
-      />
-    </div>
   
-    <div class="m-2">
-      <label class="text-white form-label me-2" for="forumTags"
-        >Modificar Etiquetas</label
-      >
-      <input
-        class=""
-        type="text"
-        list="drawFiles"
-        name="forumTags"
-        #forumTags="ngModel"
-        [(ngModel)]="forumService.selectedForum.forumTags"
-      />
-    </div>
-  
-    <div class="m-2">
-      <label class="text-white form-label me-2" for="forumContent"
-        >Editar contenido</label
-      >
-      <input
-        class=""
-        type="text"
-        list="drawFiles"
-        name="ForumContent"
-        #ForumContent="ngModel"
-        [(ngModel)]="forumService.selectedForum.ForumContent"
-      />
-    </div>
-  
-    <button class="btn btn-light m-2">Envíar</button>
-    <button (click)="showforumUpFun()" class="btn btn-light m-2">
-      Cerrar
-    </button>
-  </form>
   
   <!-- fin solicitud de foros -->
   
@@ -395,3 +217,189 @@
   
 </div>
 
+<!-- forma admin-usuarios -->
+
+<form
+*ngIf="openUp"
+class="animated fadeInDown bg-medium-tucode main-form"
+#updateForm="ngForm"
+(ngSubmit)="addUser(userService.selectedUser._id,updateForm)"
+>
+<h3 class="text-white text-center">Formato de Edición</h3>
+
+<div class="m-2">
+  <label class="text-white" for="name">Nombre</label>
+  <div>
+    <input
+      type="text"
+      name="name"
+      id=""
+      #name="ngModel"
+      [(ngModel)]="userService.selectedUser.name"
+    />
+  </div>
+</div>
+
+<div class="m-2">
+  <label class="text-white" for="lastName">Apellido</label>
+  <div>
+    <input
+      type="text"
+      name="lastName"
+      id=""
+      #lastName="ngModel"
+      [(ngModel)]="userService.selectedUser.lastName"
+    />
+  </div>
+</div>
+
+<div class="m-2">
+  <label class="text-white me-2" for="email">Correo </label>
+  <div>
+    <input
+      type="email"
+      name="email"
+      id=""
+      #email="ngModel"
+      [(ngModel)]="userService.selectedUser.email"
+    />
+  </div>
+</div>
+
+<div class="m-2">
+  <label class="text-white form-label me-2" for="permissions"
+    >Permisos de ADMIN</label
+  >
+  <input
+    class=""
+    type="checkbox"
+    list="drawFiles"
+    name="permissionsAdmin"
+    id=""
+    [(ngModel)]="userService.selectedUser.permissionsAdmin"
+    #permissionsAdmin="ngModel"
+  />
+</div>
+
+<div class="m-2">
+  <label class="text-white form-label me-2" for="permissions"
+    >Permisos de Cliente</label
+  >
+  <input
+    class=""
+    type="checkbox"
+    list="drawFiles"
+    name="permissionsClient"
+    id=""
+    [(ngModel)]="userService.selectedUser.permissionsClient"
+    #permissionsClient="ngModel"
+  />
+</div>
+
+<div class="m-2">
+  <label class="text-white form-label me-2" for="permissions"
+    >Cuenta verificada</label
+  >
+  <input
+    class=""
+    type="checkbox"
+    list="drawFiles"
+    name="permissionsVerified"
+    id=""
+    [checked]="userService.selectedUser.permissionsVerified"
+    [(ngModel)]="userService.selectedUser.permissionsVerified"
+    #permissionsVerified="ngModel"
+    
+  />
+</div>
+<div class="align-self-center">
+  <button class="btn btn-light m-2" 
+  >
+    Guardar
+  </button>
+  <button
+    class="btn btn-light m-2"
+    (click)="resetForm()"
+  >
+    Cerrar
+  </button>
+</div>
+</form>
+
+<!-- forma respuestas de contacto -->
+
+<form
+id="formcontactAnswer"
+#answerForm="ngForm"
+(ngSubmit)="ansContact(contactService.selectedContact._id,answerForm)"
+*ngIf="showSolicitudUp"
+class="animated fadeInDown bg-medium-tucode main-form "
+>
+<!-- (ngSubmit)="ansContact(contactService.selectedContact._id,answerForm)" -->
+<h3 class="text-white text-center mb-5">Ingresa una respuesta</h3>
+<textarea class="form-control" required="true" name="contactAnswers" id="" cols="30" rows="8" #contactAswers="ngModel"
+[(ngModel)]="contactService.selectedContact.contactAnswers" style="resize:none"></textarea>
+<!-- <input type="text" name="contactAnswers" #contactAswers="ngModel"
+[(ngModel)]="contactService.selectedContact.contactAnswers"> -->
+
+<button form="formcontactAnswer" class="btn btn-light m-2" >Envíar</button>
+<button (click)="showSolicitudUpFun()" class="btn btn-light m-2">
+  Cerrar
+</button>
+</form>
+
+<!--  forumulario de foros -->
+<form
+#formAdminForum="ngForm"
+(ngSubmit)="editForum(forumService.selectedForum._id, formAdminForum)"
+  *ngIf="showforumUp"
+  class="animated fadeInDown bg-medium-tucode main-form"
+>
+  <h3 class="text-white text-center">Editar Entrada</h3>
+  <div class="m-2">
+    <label class="text-white form-label me-2" for="forumTitle"
+      >Editar titulo del foro</label
+    >
+    <input
+      class=""
+      type="text"
+      list="drawFiles"
+      name="forumTitle"
+      #forumTitle="ngModel"
+      [(ngModel)]="forumService.selectedForum.forumTitle"
+    />
+  </div>
+
+  <div class="m-2">
+    <label class="text-white form-label me-2" for="forumTags"
+      >Modificar Etiquetas</label
+    >
+    <input
+      class=""
+      type="text"
+      list="drawFiles"
+      name="forumTags"
+      #forumTags="ngModel"
+      [(ngModel)]="forumService.selectedForum.forumTags"
+    />
+  </div>
+
+  <div class="m-2">
+    <label class="text-white form-label me-2" for="forumContent"
+      >Editar contenido</label
+    >
+    <input
+      class=""
+      type="text"
+      list="drawFiles"
+      name="ForumContent"
+      #ForumContent="ngModel"
+      [(ngModel)]="forumService.selectedForum.ForumContent"
+    />
+  </div>
+
+  <button class="btn btn-light m-2">Envíar</button>
+  <button (click)="showforumUpFun()" class="btn btn-light m-2">
+    Cerrar
+  </button>
+</form>

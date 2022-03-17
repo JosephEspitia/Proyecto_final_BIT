@@ -14,26 +14,42 @@ import jwtDecode from 'jwt-decode';
 export class LoginComponent implements OnInit {
 
   token:any = this.userService.getToken();
-  detoken:any = jwtDecode(this.token)
+  /* detoken:any = jwtDecode(this.token) */
   constructor(public userService: UserService, public router: Router) {}
 
   ngOnInit(): void {
-   console.log(this.detoken);
+   /* console.log(this.detoken); */
    
    
    
   }
 
   login(form: NgForm) {
-    try {
+  
       
-      this.userService.login(form.value).subscribe(
-        (res: any) => {
+      this.userService.login(form.value).subscribe({
+        next: (res:any)=>{
+          localStorage.setItem('token', res.token);
+        },
+        error: (error:any)=> {
+          Swal.fire({
+            icon: 'error',
+            title: 'Lo sentimos',
+            text: 'El usuario solicitado no se ha encontrado, verifique que las credenciales estan escritas sean correctas',
+            confirmButtonColor: '#ffc107'
+          });
+        },
+      complete: () => {
+        console.log('complete');
+        this.router.navigate(['/profile-student']);
+      },
+      }
+       /*  (res: any) => {
          
-            localStorage.setItem('token', res.token);
+            localStorage.setItem('token', res.token); */
            /*  this.router.navigate(['/home']); */
         
-        },
+       /*  },
         (err) => {
           Swal.fire({
             icon: 'error',
@@ -41,12 +57,9 @@ export class LoginComponent implements OnInit {
             text: 'El usuario solicitado no se ha encontrado, verifique que las credenciales estan escritas sean correctas',
             confirmButtonColor: '#ffc107'
           });
-        }
+        } */
       );
-    } catch (error) {
-      alert(error);
-      return;
-    }
+   
   }
   
 
