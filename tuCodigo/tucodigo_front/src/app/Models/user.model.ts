@@ -11,6 +11,7 @@ export class User {
   permissionsAdmin: boolean;
   permissionsClient: boolean;
   permissionsVerified: boolean;
+ 
 
   constructor(
     _id = '',
@@ -24,7 +25,8 @@ export class User {
     goals = [],
     permissionsAdmin = false,
     permissionsClient = true,
-    permissionsVerified = false
+    permissionsVerified = false,
+   
   ) {
     this._id = _id;
     this.photoUser = photoUser;
@@ -38,5 +40,7 @@ export class User {
     this.permissionsAdmin = permissionsAdmin;
     this.permissionsClient = permissionsClient;
     this.permissionsVerified = permissionsVerified;
+    
+
   }
 }

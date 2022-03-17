@@ -15,6 +15,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private router:Router) {
     (this.selectedUser = new User()), (this.userLists = []);
+    
   }
 
   getUsers() {

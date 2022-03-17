@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { ForumService } from 'src/app/Services/forum.service';
 
 
@@ -14,10 +13,7 @@ export class ForumAnsComponent implements OnInit {
 idForum : string
 
   constructor(public forumService: ForumService, public router:Router) {
-    this.idForum = ``
-  
-  
-   
+    this.idForum = ``     
    }
 
   ngOnInit(): void {
@@ -38,16 +34,12 @@ idForum : string
     this.router.navigate([`/forum`])
   }
 
- /*  updateAnswer(form:NgForm){
-    const {_id, ForumAnswers} = form.value
-    this.forumService.updateAnswer(_id, ForumAnswers).subscribe(res => {
-      console.log(res)
-    })    
-  } */
+ 
   updateAnswer( id:string, form: NgForm){
     this.forumService.updateAnswer({id,text:form.value.textAnswer}).subscribe(res => {
       console.log(res)
       this.getForum()
+      this.popupAnswerF
     })    
     
    console.log(id,form.value)

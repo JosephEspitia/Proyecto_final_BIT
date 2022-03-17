@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
 
   token:any = this.userService.getToken();
   detoken:any = jwtDecode(this.token)
-  constructor(public userService: UserService, public router: Router) {}
 
+  constructor(public userService: UserService, public router: Router) {}
   ngOnInit(): void {
    console.log(this.detoken);
    

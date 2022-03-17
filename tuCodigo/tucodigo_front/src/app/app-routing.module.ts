@@ -27,8 +27,8 @@ const routes: Routes = [
   { path: 'navbar', component: NavbarComponent },
   { path: 'profile-student/:id', component: ProfileStudentComponent },
   { path: 'forumAns/:id', component: ForumAnsComponent },
-
-  { path: 'profile-admin', component: ProfileAdminComponent}
+  { path: 'profile-admin', component: ProfileAdminComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
   
 ];
 
