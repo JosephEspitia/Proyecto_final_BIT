@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
 })
 
 export class ForumService {
-// 622b9d694bf7ee934366a3b6 622ba06c4bf7ee934366a3b9 622e961ca0408604498e59f8
+
  
   selectedForum: Forum
   forums: any
@@ -23,9 +23,7 @@ getForum(){
   return this.http.get(`${this.url_api}/get-forum`)
 }
 
-/* createForum(credentials: any){
-  return this.http.post(`${this.url_api}/create-forum`, credentials)
-} */
+
 
 createForum(formForum: Forum) {
   return this.http.post(`${this.url_api}/create-forum`, formForum);

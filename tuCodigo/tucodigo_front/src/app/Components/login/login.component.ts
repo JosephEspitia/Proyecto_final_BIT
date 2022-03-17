@@ -14,9 +14,9 @@ import jwtDecode from 'jwt-decode';
 export class LoginComponent implements OnInit {
 
   token:any = this.userService.getToken();
-  /* detoken:any = jwtDecode(this.token) */
-  constructor(public userService: UserService, public router: Router) {}
+  detoken:any = jwtDecode(this.token)
 
+  constructor(public userService: UserService, public router: Router) {}
   ngOnInit(): void {
    /* console.log(this.detoken); */
    

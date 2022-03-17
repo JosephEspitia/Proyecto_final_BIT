@@ -11,13 +11,18 @@ import { User } from 'src/app/Models/user.model';
   styleUrls: ['./profile-student.component.css']
 })
 export class ProfileStudentComponent implements OnInit {
-  
+  idStudent : string
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { 
+    this.idStudent = ``
+  }
 
   ngOnInit(): void {
+    this.getUsers()
+    this.idStudent = window.location.pathname.split(`/`)[2]    
+    console.log(this.idStudent)
   
-  
+   
   }
 
   getUsers() {
@@ -25,16 +30,6 @@ export class ProfileStudentComponent implements OnInit {
       this.userService.userLists = res as User[];
     });
   }
-
-  /* deCode() {
-   this.userService.getDataFromToken().subscribe((res:any)=>{
-      console.log(res)
-   });
-    
-  } */
-
 }
-/* getToken(){
-  return localStorage.getItem('token')
-}*/
+
 

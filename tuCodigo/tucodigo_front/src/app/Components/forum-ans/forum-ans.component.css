@@ -15,12 +15,8 @@
 }
 
 .main-form {
-  border-radius: 2px;
-  border: solid 3px #ffc107;
-  position: absolute;
-  z-index: 3;
-  margin: auto;
-  width: fit-content;
-  margin-left: 50%;
-  margin-top: 50%;
+
+   z-index: 10;
+   background-color: #0B3C5D;
+   ;  
  }
