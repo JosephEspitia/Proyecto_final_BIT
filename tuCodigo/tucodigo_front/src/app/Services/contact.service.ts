@@ -26,7 +26,7 @@ export class ContactService {
     return this.http.put(`${this.url_api}/upDate-request/${_id}`, newElm)
      }
 
-     deleteUser(_id: any) {
+     deleteContact(_id: any) {
         return this.http.delete(`${this.url_api}/delete-request/${_id}`);
       }
 

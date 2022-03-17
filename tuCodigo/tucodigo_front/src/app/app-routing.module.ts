@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'html-course', component: HtmlCourseComponent },
   { path: 'java-script-course', component: JavaScriptCourseComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'profile-student', component: ProfileStudentComponent },
+  { path: 'profile-student/:id', component: ProfileStudentComponent },
   { path: 'forumAns/:id', component: ForumAnsComponent },
 
   { path: 'profile-admin', component: ProfileAdminComponent}

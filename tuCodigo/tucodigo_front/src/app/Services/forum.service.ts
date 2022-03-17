@@ -34,5 +34,14 @@ createForum(formForum: Forum) {
 updateAnswer(answer:any){
   return this.http.put(`${this.url_api}/update-answer/${answer.id}`, {ForumAnswers:answer.text});
 }
+
+
+deleteForum (_id:any) {
+  return this.http.delete(`${this.url_api}/delete-forum/${_id}`)
+}
+
+updateForum (_id:any, element:any) {
+  return this.http.put(`${this.url_api}/update-forum/${_id}`, element)
+}
 }
 

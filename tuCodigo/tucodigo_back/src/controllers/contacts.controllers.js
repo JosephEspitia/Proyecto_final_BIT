@@ -38,7 +38,8 @@ const getOneRequest = async (req, res) => {
   }
   const upDateRequest= async(req, res)=> {
 try {
-  const id = req.params._id;
+  const id = req.params.contactId;
+  console.log(id);
   const upDate = await Contacts.findByIdAndUpdate(id, {$set:req.body});
   res.status(200). json(upDate);
 } catch (error) {

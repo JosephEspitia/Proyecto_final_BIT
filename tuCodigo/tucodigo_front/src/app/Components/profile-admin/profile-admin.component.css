@@ -1,7 +1,7 @@
 .main-form {
     border-radius: 2px;
     border: solid 3px #ffc107;
-    position:absolute;
+    position:fixed;
     margin: auto;
     width:fit-content;
     margin-left: 40%;
@@ -17,7 +17,9 @@
     border-collapse: collapse;
 }
 
-@media(max-width: 1500px) {
+
+
+@media(max-width: 1250px) {
     .main-table thead{
         display: none;
     }
@@ -63,3 +65,4 @@
         flex-wrap: wrap !important;
     }
 }
+

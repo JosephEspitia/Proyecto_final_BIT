@@ -189,7 +189,7 @@
     *ngIf="showSolicitud"
     class="main-table table-responsive-sm col-md-9 animated fadeInLeft"
   >
-    <table class="table table-striped">
+    <table class="table table-striped main-table">
       <thead>
         <th class="text-center bg-medium-tucode text-white">ID</th>
         <th class="text-center bg-medium-tucode text-white">
@@ -198,18 +198,20 @@
         <th class="text-center bg-medium-tucode text-white">Email</th>
         <th class="text-center bg-medium-tucode text-white">Teléfono</th>
         <th class="text-center bg-medium-tucode text-white">Contenido</th>
+        <th class="text-center bg-medium-tucode text-white">Respuesta</th>
         <th class="bg-medium-tucode text-center text-white">Opciones</th>
       </thead>
       <tbody>
-        <tr>
-          <td class="text-white">123</td>
-          <td class="text-white">nombrefalse</td>
-          <td class="text-white">123@123</td>
-          <td class="text-white">123</td>
-          <td class="text-white">comentario de prueba</td>
-          <td class="text-white">
-            <a class="btn btn-danger m-2"> Borrar </a>
-            <a (click)="showSolicitudUpFun()" class="btn btn-primary m-2">
+        <tr *ngFor="let cont of contactService.contactsList">
+          <td data-label="ID" class="text-white">{{cont._id}}</td>
+          <td data-label="Nombre de contacto" class="text-white"> {{cont.contactName}}</td>
+          <td data-label="Email" class="text-white"> {{cont.contactEmail}}3</td>
+          <td data-label="Teléfono" class="text-white"> {{cont.contactPhone}}</td>
+          <td data-label="Contenido" class="text-white">{{ cont.contactContent}}</td>
+          <td data-label="respuesta" class="text-white">{{cont.contactAnswers}}</td>
+          <td data-label="Opciones" class="text-white">
+            <a (click)="deleteContact(cont._id)" class="btn btn-danger m-2" > Borrar </a>
+            <a (click)="upDateContact(cont)" class="btn btn-primary m-2">
               Responder</a
             >
           </td>
@@ -219,13 +221,20 @@
   </div>
   
   <form
+    id="formcontactAnswer"
+    #answerForm="ngForm"
+    (ngSubmit)="ansContact(contactService.selectedContact._id,answerForm)"
     *ngIf="showSolicitudUp"
     class="animated fadeInDown bg-medium-tucode main-form align-self-center col-md-3 mt-5 shadow-lg rounded d-flex flex-column justify-content-start align-items-stretch p-3"
   >
-    <h3 class="text-white text-center">Ingresa una respuesta</h3>
-    <input type="text" name="ans" />
+  <!-- (ngSubmit)="ansContact(contactService.selectedContact._id,answerForm)" -->
+    <h3 class="text-white text-center mb-5">Ingresa una respuesta</h3>
+    <textarea class="form-control" required="true" name="contactAnswers" id="" cols="30" rows="8" #contactAswers="ngModel"
+    [(ngModel)]="contactService.selectedContact.contactAnswers" style="resize:none"></textarea>
+    <!-- <input type="text" name="contactAnswers" #contactAswers="ngModel"
+    [(ngModel)]="contactService.selectedContact.contactAnswers"> -->
   
-    <button class="btn btn-light m-2">Envíar</button>
+    <button form="formcontactAnswer" class="btn btn-light m-2" >Envíar</button>
     <button (click)="showSolicitudUpFun()" class="btn btn-light m-2">
       Cerrar
     </button>
@@ -238,7 +247,7 @@
     *ngIf="showforum"
     class="main-table table-responsive-sm col-md-9 animated fadeInLeft"
   >
-    <table class="table table-striped">
+    <table class="table table-striped main-table">
       <thead>
         <th class="text-center bg-medium-tucode text-white">ID</th>
         <th class="text-center bg-medium-tucode text-white">titulo del foro</th>
@@ -254,20 +263,17 @@
         <th class="bg-medium-tucode text-center text-white">Opciones</th>
       </thead>
       <tbody>
-        <tr>
-          <td class="text-white">123</td>
-          <td class="text-white">¿pregunta de prueba?</td>
-          <td class="text-white">'css', 'class</td>
-          <td class="text-white">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus,
-            dignissimos sapiente laborum deleniti dicta a ad quasi? Atque at,
-            accusamus, ea veniam rerum, quod sint commodi illo inventore mollitia
-            consectetur.
+        <tr *ngFor="let forum of forumService.forums">
+          <td data-label="ID" class="text-white">{{forum._id}}</td>
+          <td data-label="Titulo del Foro" class="text-white">{{forum.forumTitle}}</td>
+          <td data-label="Administrar Etiquetas" class="text-white">{{forum.forumTags}}</td>
+          <td data-label="Contenido de Foro" class="text-white">
+           {{forum.ForumContent}}
           </td>
-          <td class="text-white">comentario de prueba</td>
-          <td class="text-white">
-            <a class="btn btn-danger m-2"> Borrar </a>
-            <a (click)="showforumUpFun()" class="btn btn-primary m-2">
+          <td data-label="Comentarios" class="text-white">{{forum.ForumAnswers}}</td>
+          <td data-label="Opciones" class="text-white">
+            <a (click)="deleteForum(forum._id)" class="btn btn-danger m-2"> Borrar </a>
+            <a (click)="upDateForum(forum)" class="btn btn-primary m-2">
               Editar</a
             >
           </td>
@@ -275,8 +281,10 @@
       </tbody>
     </table>
   </div>
-  
+  <!--  forumulario de foros -->
   <form
+  #formAdminForum="ngForm"
+  (ngSubmit)="editForum(forumService.selectedForum._id, formAdminForum)"
     *ngIf="showforumUp"
     class="animated fadeInDown bg-medium-tucode main-form align-self-center col-md-3 mt-5 shadow-lg rounded d-flex flex-column justify-content-start align-items-stretch p-3"
   >
@@ -290,6 +298,8 @@
         type="text"
         list="drawFiles"
         name="forumTitle"
+        #forumTitle="ngModel"
+        [(ngModel)]="forumService.selectedForum.forumTitle"
       />
     </div>
   
@@ -302,6 +312,8 @@
         type="text"
         list="drawFiles"
         name="forumTags"
+        #forumTags="ngModel"
+        [(ngModel)]="forumService.selectedForum.forumTags"
       />
     </div>
   
@@ -313,7 +325,9 @@
         class=""
         type="text"
         list="drawFiles"
-        name="forumContent"
+        name="ForumContent"
+        #ForumContent="ngModel"
+        [(ngModel)]="forumService.selectedForum.ForumContent"
       />
     </div>
   
@@ -331,7 +345,7 @@
     *ngIf="showCourses"
     class="main-table table-responsive-sm col-md-9 animated fadeInLeft"
   >
-  <table class="table table-striped">
+  <table class="table table-striped main-table">
     <thead>
       <th class="text-center bg-medium-tucode text-white">ID</th>
       <th class="text-center bg-medium-tucode text-white">
@@ -345,18 +359,18 @@
     </thead>
     <tbody>
       <tr>
-        <td class="text-white">123</td>
-        <td class="text-white">HTML</td>
-        <td class="text-white"><p>etiquetas</p>
+        <td data-label="ID" class="text-white">123</td>
+        <td data-label="Nombre de Curso" class="text-white">HTML</td>
+        <td data-label="Temario" class="text-white"><p>etiquetas</p>
             <p>Clases</p>
             <p>Formularios</p>
             <p>tipo de inputs</p>
         </td>
-        <td class="text-white">123</td>
-        <td class="text-white">ejemplo de prueba</td>
-        <td class="text-white">¿esta es una prueba?</td>
-        <td class="text-white">
-          <a class="btn btn-danger m-2"> Borrar </a>
+        <td data-label="Contenido" class="text-white">123</td>
+        <td data-label="Ejemplos" class="text-white">ejemplo de prueba</td>
+        <td data-label="Preguntas" class="text-white">¿esta es una prueba?</td>
+        <td data-label="Opciones" class="text-white">
+          <a class="btn btn-danger m-2" > Borrar </a>
           <a  class="btn btn-primary m-2">
             Editar</a
           >
@@ -380,3 +394,4 @@
   
   
 </div>
+
