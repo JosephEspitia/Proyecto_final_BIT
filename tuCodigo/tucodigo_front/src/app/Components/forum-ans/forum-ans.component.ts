@@ -39,7 +39,7 @@ idForum : string
     this.forumService.updateAnswer({id,text:form.value.textAnswer}).subscribe(res => {
       console.log(res)
       this.getForum()
-      this.popupAnswerF
+     /*  this.popupAnswerF */
     })    
     
    console.log(id,form.value)
