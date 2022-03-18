@@ -13,21 +13,18 @@ import jwtDecode from 'jwt-decode';
 })
 export class LoginComponent implements OnInit {
 
-  token:any = this.userService.getToken();
-  detoken:any = jwtDecode(this.token)
-
+ 
   constructor(public userService: UserService, public router: Router) {}
   ngOnInit(): void {
-   /* console.log(this.detoken); */
    
-   
+    
    
   }
 
   login(form: NgForm) {
   
       
-      this.userService.login(form.value).subscribe({
+      this.userService.login(form.value).subscribe( {
         next: (res:any)=>{
           localStorage.setItem('token', res.token);
         },
@@ -41,7 +38,7 @@ export class LoginComponent implements OnInit {
         },
       complete: () => {
         console.log('complete');
-        this.router.navigate(['/profile-student']);
+        this.router.navigate([`/home`]);
       },
       }
        /*  (res: any) => {

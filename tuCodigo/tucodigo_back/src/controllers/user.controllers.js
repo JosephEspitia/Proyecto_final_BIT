@@ -66,9 +66,12 @@ const getUsers = async (req, res) => {
               name: user.name,
               lastname: user.lastname,
               email: user.email,
+              photoUser: user.photoUser,
               actualCourse: user.actualCourse,
               goals: user.goals,
-              permissions: user.permissions
+              permissionsAdmin: user.permissionsAdmin,
+              permissionsClient: user.permissionsClient,
+              permissionsVerified: user.permissionsVerified
             },
             process.env.JWT_SECRET_KEY,
             { expiresIn: "2h" }
