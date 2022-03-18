@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, NgForm } from '@angular/forms';
@@ -16,6 +16,8 @@ import { CssCourseComponent } from './Components/css-course/css-course.component
 import { JavaScriptCourseComponent } from './Components/java-script-course/java-script-course.component';
 import { ForumComponent } from './Components/forum/forum.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { Navbar2Component } from './Components/navbar2/navbar2.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ContactComponent } from './Components/contact/contact.component';
     CssCourseComponent,
     JavaScriptCourseComponent,
     ForumComponent,
-    ContactComponent
+    ContactComponent,
+    Navbar2Component,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { ContactComponent } from './Components/contact/contact.component';
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
