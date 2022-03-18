@@ -18,6 +18,7 @@ export class ProfileStudentComponent implements OnInit {
 
   constructor(public userService: UserService, public router:Router) { 
     this.idStudent = ``
+     
     
    
   }
@@ -26,6 +27,7 @@ export class ProfileStudentComponent implements OnInit {
     this.getUsers()
     this.idStudent = window.location.pathname.split(`/`)[2]    
     console.log(this.idStudent)
+
     
     
   /* this.router.navigate([`/profile-student${this.detoken._id}`]) */
@@ -36,6 +38,7 @@ export class ProfileStudentComponent implements OnInit {
   getUsers() {
     this.userService.getUsers().subscribe((res) => {
       this.userService.userLists = res as User[];
+      console.log(this.userService.userLists)
     });
   }
 }

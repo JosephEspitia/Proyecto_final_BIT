@@ -60,7 +60,7 @@
 
 </section>
 
-<form class="m-5 animated fadeInUp main-form" #textAnswer="ngForm" *ngIf="popupAnswer">
+<form class="m-5 animated fadeInUp main-form"  #textAnswer="ngForm" *ngIf="popupAnswer">
     <div >
         <textarea class="fs-4" type="text"  style="resize: none; width: 100%; height: 100px; background-color:#83bfe2;" name="textAnswer" #textAnswer="ngModel" placeholder="Escribe tu aporte de respuesta aquí"
             [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
