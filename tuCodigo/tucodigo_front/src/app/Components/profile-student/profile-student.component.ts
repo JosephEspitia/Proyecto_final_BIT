@@ -17,6 +17,7 @@ export class ProfileStudentComponent implements OnInit {
 
   constructor(public userService: UserService, public router:Router) { 
     this.idStudent = ``
+     
     
    
   }
@@ -32,6 +33,7 @@ export class ProfileStudentComponent implements OnInit {
   getUsers() {
     this.userService.getUsers().subscribe((res) => {
       this.userService.userLists = res as User[];
+      console.log(this.userService.userLists)
     });
   }
 }
