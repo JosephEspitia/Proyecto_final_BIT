@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
-import jwtDecode from 'jwt-decode';
 import { Router } from '@angular/router';
 
 
@@ -18,7 +17,6 @@ export class NavbarComponent implements OnInit {
   constructor( public userService:UserService, public router:Router) { }
 
   ngOnInit(): void {
-    console.log(this.userService.getDataFromToken().actualCourse);
     
   }
 

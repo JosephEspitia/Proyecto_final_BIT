@@ -20,7 +20,7 @@ import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 import { CommonModule } from '@angular/common';
 import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
 import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './Services/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -49,11 +49,6 @@ import { TokenInterceptorService } from './Services/token-interceptor.service';
   ],
   providers: [
     AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent]
 })

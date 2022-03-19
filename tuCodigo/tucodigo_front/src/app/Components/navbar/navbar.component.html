@@ -21,8 +21,7 @@
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
-            href="#"
+            class="nav-link dropdown-toggle btn"
             id="navbarDropdownMenuLink"
             role="button"
             data-bs-toggle="dropdown"
@@ -69,7 +68,6 @@
           <a
             class="btn btn-primary dropdown-toggle"
             style="background-color: #0B3C5D;"
-            href="#"
             id="navbarDropdownMenuLink"
             role="button"
             data-bs-toggle="dropdown"
@@ -78,9 +76,9 @@
             {{userService.getDataFromToken().name}}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="" (click)="goProfile()">Mi Perfil</a></li>
+            <li><a class="dropdown-item btn"  (click)="goProfile()">Mi Perfil</a></li>
             <li><a class="dropdown-item" (click)="goCourse()">{{userService.getDataFromToken().actualCourse}}</a></li>
-            <li><a class="dropdown-item" href="" (click)="logOut()">Cerrar sesion</a></li>
+            <li><a class="dropdown-item btn" (click)="logOut()">Cerrar sesion</a></li>
             
           </ul>
         </li>
