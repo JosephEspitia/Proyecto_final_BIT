@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
       this.userService.selectedUser.passwordConfirm = '';
     });
 
-    this.router.navigate(['/profile-student'])
+    this.router.navigate([`/login`])
     return;
   }
 }
