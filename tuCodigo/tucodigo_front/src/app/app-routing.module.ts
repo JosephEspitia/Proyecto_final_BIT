@@ -13,6 +13,7 @@ import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.
 import { ProfileStudentComponent } from './Components/profile-student/profile-student.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
@@ -25,9 +26,15 @@ const routes: Routes = [
   { path: 'html-course', component: HtmlCourseComponent },
   { path: 'java-script-course', component: JavaScriptCourseComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'profile-student/:id', component: ProfileStudentComponent },
-  { path: 'forumAns/:id', component: ForumAnsComponent },
-  { path: 'profile-admin', component: ProfileAdminComponent},
+  { path: 'profile-student/:id', 
+  component: ProfileStudentComponent,
+  canActivate:[AuthGuard]
+},
+  { path: 'forumAns/:id', component: ForumAnsComponent},
+  { path: 'profile-admin', 
+  component: ProfileAdminComponent,
+  canActivate: [AuthGuard]
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
   
 ];

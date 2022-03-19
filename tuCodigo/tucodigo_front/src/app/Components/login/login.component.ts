@@ -41,20 +41,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([`/home`]);
       },
       }
-       /*  (res: any) => {
-         
-            localStorage.setItem('token', res.token); */
-           /*  this.router.navigate(['/home']); */
-        
-       /*  },
-        (err) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Lo sentimos',
-            text: 'El usuario solicitado no se ha encontrado, verifique que las credenciales estan escritas sean correctas',
-            confirmButtonColor: '#ffc107'
-          });
-        } */
+    
       );
    
   }

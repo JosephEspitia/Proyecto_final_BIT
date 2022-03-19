@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { ContactComponent } from './Components/contact/contact.component';
 import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 import { CommonModule } from '@angular/common';
 import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './Services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,14 @@ import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.
     FormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

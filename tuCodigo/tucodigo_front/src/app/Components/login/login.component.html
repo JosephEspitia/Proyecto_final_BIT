@@ -1,39 +1,41 @@
+<div
+  class="container-fluid bg-login d-flex align-items-center justify-content-center flex-column"
+>
+  <div class="logg">
+    <h1 class="animated fadeInDown">Iniciar Sesion</h1>
 
-<div class="container-fluid bg-login d-flex align-items-center justify-content-center flex-column ">
-
-  <h1 class="animated fadeInDown">Iniciar Sesion</h1>
-
-  <form class="animated fadeInUp" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <div class="mb-3 row">
-      <label for="email" class="form-label ">Email</label>
-      
+    <form
+      class="animated fadeInUp"
+      #loginForm="ngForm"
+      (ngSubmit)="login(loginForm)"
+    >
+      <div class="mb-3 animated bounceInLeft">
+        <label for="name" class="form-label">Email</label>
         <input
+          required="true"
           type="text"
           class="form-control"
+          aria-describedby="emailHelp"
           name="email"
           #email="ngModel"
           [(ngModel)]="userService.selectedUser.email"
         />
-      
-    </div>
+      </div>
 
-    <div class="mb-3 row">
-      <label for="password" class="form-label "
-        >Contraseña</label
-      >
-      
+      <div class="mb-3 animated bounceInLeft">
+        <label for="name" class="form-label">Contraseña</label>
         <input
+          required="true"
           type="password"
           class="form-control"
+          aria-describedby="emailHelp"
           name="password"
           #password="ngModel"
           [(ngModel)]="userService.selectedUser.password"
         />
-      
-    </div>
+      </div>
 
-    <button href="" class="btn btn-warning ms-5 ms-5" >Iniciar sesion</button>
-  </form>
-
-  
+      <button href="" class="btn btn-warning ms-5 ms-5">Iniciar sesion</button>
+    </form>
+  </div>
 </div>

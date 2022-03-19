@@ -13,8 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileStudentComponent implements OnInit {
   idStudent : string
-  /* token:any = this.userService.getToken();
-  detoken:any = jwtDecode(this.token) */
+  
 
   constructor(public userService: UserService, public router:Router) { 
     this.idStudent = ``
@@ -26,9 +25,6 @@ export class ProfileStudentComponent implements OnInit {
     this.getUsers()
     this.idStudent = window.location.pathname.split(`/`)[2]    
     console.log(this.idStudent)
-    
-    
-  /* this.router.navigate([`/profile-student${this.detoken._id}`]) */
   
    
   }

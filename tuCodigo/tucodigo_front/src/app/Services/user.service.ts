@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../Models/user.model';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import { HttpInterceptor } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,9 @@ export class UserService {
   userLists: User[];
   url_api = `${environment.API_URL}/user`;
 
-  constructor(private http: HttpClient, private router:Router) {
+  constructor(private http: HttpClient, 
+    private router:Router,
+    ) {
     (this.selectedUser = new User()), (this.userLists = []);
     
   }
@@ -68,4 +71,8 @@ export class UserService {
         const decoded = jwtDecode(token ? token : "Error in token")
         return decoded
       }
+
+  /* obtenerUsuarios () {
+    let params = new HttpParams().append('')
+  } */
 }
