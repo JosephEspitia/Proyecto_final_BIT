@@ -41,5 +41,9 @@ deleteForum (_id:any) {
 updateForum (_id:any, element:any) {
   return this.http.put(`${this.url_api}/update-forum/${_id}`, element)
 }
+
+getOneForum(_id:any){
+  return this.http.get(`${this.url_api}/get-one-forum/${_id}`)
+}
 }
 

@@ -1,21 +1,22 @@
 
-
 <section class="bg-foruma pb-5">
     <h2 class="ms-3 fs-1 bg-title" style="color: #ecf00d">Respuestas</h2>
-
-  
-
-    <div class="card m-5 " *ngFor="let forum of forumService.forums">
-        <div class="card-body" *ngIf="idForum === forum._id">
+    <div class="card m-5 " >
+        <div class="card-body" >
             <h5 class="card-title fs-3" style="color:#328cc1"><svg xmlns="http://www.w3.org/2000/svg" width="40"
                     height="40" fill="currentColor" class="bi bi-pin-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 
+                    <path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 
                     7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z" />
-                </svg>{{forum.forumTitle}}</h5>
+                </svg>{{forumService.selectedForum.forumTitle}}</h5>
             <hr>
-            <p class="card-text fs-4">{{forum.ForumContent}}</p>
-            <!-- <p class="card-text" style="background-color: rgb(232, 144, 191);">Etiquetas: {{forum.forumTags}}</p> -->
+            <p class="card-text fs-4">{{forumService.selectedForum.ForumContent}}</p>
+            <p class="card-text" style="color: rgb(232, 144, 191);font-weight: bold;"> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                class="bi bi-tags-fill" viewBox="0 0 16 16" style="color: deeppink;">
+                <path
+                  d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z" />
+              </svg> {{forumService.selectedForum.forumTags}}</p>
             <p class="card-text fs-4" style="color:rgb(34, 37, 194)"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                     height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -29,7 +30,7 @@
                     <path fill-rule="evenodd"
                         d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
                 </svg> </p>
-            <p *ngFor="let answers of forum.ForumAnswers" class="fs-5"><svg xmlns="http://www.w3.org/2000/svg"
+            <p *ngFor="let answers of forumService.selectedForum.ForumAnswers" class="fs-5"><svg xmlns="http://www.w3.org/2000/svg"
                     width="32" height="32" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
                     <path
                         d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
@@ -43,21 +44,15 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="main-form animated fadeInUp" *ngIf="popupAnswer"> -->
-
-    <!-- </div> -->
-
-
 </section>
 
-<form class="m-5 animated fadeInUp main-form"  #textAnswer="ngForm" *ngIf="popupAnswer">
-    <div></div>
-    <div >
-        <textarea class="fs-4" type="text"  style=" width: 100%; height: 100px; background-color:#83bfe2;" name="textAnswer" #textAnswer="ngModel" placeholder="Escribe tu aporte de respuesta aquí"
+<form class="m-5 animated fadeInDown main-form" style=" width: 50%; height: 190px" #textAnswer="ngForm" *ngIf="popupAnswer">
+   
+    <div  class="form-group">
+         <textarea class="fs-4 m-2" type="text"  style=" width: 95%; height: 100px; background-color:#83bfe2;" name="textAnswer" #textAnswer="ngModel" placeholder="Escribe tu aporte de respuesta aquí"
             [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
     </div>
     <div></div>
-    <a class="btn btn-warning" style="color: #1D2731; font-weight: bold;"
+    <a class="btn btn-warning m-2" style="color: #1D2731; font-weight: bold;border-color: antiquewhite;"
         (click)="updateAnswer(idForum,textAnswer); popupAnswerF()">enviar respuesta</a>
 </form>

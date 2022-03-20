@@ -26,6 +26,8 @@ export class ProfileStudentComponent implements OnInit {
     this.getUsers()
     this.idStudent = window.location.pathname.split(`/`)[2]    
     console.log(this.idStudent)
+    this.getOneUser(this.idStudent)
+
   
    
   }
@@ -36,6 +38,13 @@ export class ProfileStudentComponent implements OnInit {
       console.log(this.userService.userLists)
     });
   }
-}
 
+  getOneUser(id: string) {
+    this.userService.getOneUser(this.idStudent).subscribe((res) => {
+      this.userService.selectedUser = res as User;
+      console.log(res);
+    })
+  } 
+  
+}
 

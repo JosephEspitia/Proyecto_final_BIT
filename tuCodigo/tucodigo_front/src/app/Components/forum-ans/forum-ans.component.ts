@@ -2,60 +2,59 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ForumService } from 'src/app/Services/forum.service';
-
+import { Forum } from 'src/app/Models/forum.model';
 
 @Component({
   selector: 'app-forum-ans',
   templateUrl: './forum-ans.component.html',
-  styleUrls: ['./forum-ans.component.css']
+  styleUrls: ['./forum-ans.component.css'],
 })
 export class ForumAnsComponent implements OnInit {
-idForum : string
+  idForum: string;
 
-  constructor(public forumService: ForumService, public router:Router) {
-    this.idForum = ``     
-   }
+  constructor(public forumService: ForumService, public router: Router) {
+    this.idForum = ``;
+  }
 
   ngOnInit(): void {
-    this.getForum()
-    this.idForum = window.location.pathname.split(`/`)[2]
-    console.log(this.idForum)
-   }
-
-  getForum(){
-    this.forumService.getForum().subscribe(
-      (data) => {this.forumService.forums = data
-      console.log(this.forumService.forums)
-      }
-    )
+    /*  this.getForum() */
+    this.idForum = window.location.pathname.split(`/`)[2];
+    console.log(this.idForum);
+    this.getOneForum(this.idForum);
   }
 
-  backForum(){
-    this.router.navigate([`/forum`])
+  getForum() {
+    this.forumService.getForum().subscribe((data) => {
+      this.forumService.forums = data;
+      console.log(this.forumService.forums);
+    });
   }
 
- 
-  updateAnswer( id:string, form: NgForm){
-    this.forumService.updateAnswer({id,text:form.value.textAnswer}).subscribe(res => {
-      console.log(res)
-      this.getForum()
-     /*  this.popupAnswerF */
-    })    
-    
-   console.log(id,form.value)
+  getOneForum(id: string) {
+    this.forumService.getOneForum(this.idForum).subscribe((res) => {
+      this.forumService.selectedForum = res as Forum;
+      console.log(res);
+    });
   }
 
-  popupAnswer : boolean=false
+  updateAnswer(id: string, form: NgForm) {
+    this.forumService
+      .updateAnswer({ id, text: form.value.textAnswer })
+      .subscribe((res) => {
+        console.log(res);
+        this.getOneForum(this.idForum);
+      });
 
-  popupAnswerF(){
-    if (this.popupAnswer==false){
-     return this.popupAnswer=true 
-          }
-    else {
-      return this.popupAnswer=false
+    console.log(id, form.value);
+  }
+
+  popupAnswer: boolean = false;
+
+  popupAnswerF() {
+    if (this.popupAnswer == false) {
+      return (this.popupAnswer = true);
+    } else {
+      return (this.popupAnswer = false);
     }
   }
-  
-
 }
-

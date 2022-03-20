@@ -14,19 +14,13 @@
   background-color: #0b3c5d;
 }
 
-/* .main-form {
 
-   z-index: 10;
-   background-color: #0B3C5D;
-   ;  
- } */
 
- .main-form {
-  position:fixed !important; /* lo deja fijo en un parte de la pantalla */
-  top: 10% !important;
-  left: 30% !important;
-  width: fit-content;
-  height: fit-content ;
+.main-form {
+  position: fixed !important; /* lo deja fijo en un parte de la pantalla */
+  top: 15% !important;
+  left: 10% !important;
+  background-color: #1a202c;
   padding: 5px;
-  border: solid 3px #ffc107 ;
+  border: solid 3px #ffc107;
 }

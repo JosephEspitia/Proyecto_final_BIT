@@ -8,5 +8,6 @@ router.post("/create-forum", forumControllers.createForum);
 router.delete("/delete-forum/:forumId", forumControllers.deleteForum);
 router.put("/update-forum/:forumId", forumControllers.updateForum)
 router.put("/update-answer/:forumId", forumControllers.updateAnswer)
+router.get("/get-one-forum/:forumId", forumControllers.getOneForum)
 
 module.exports = router;
