@@ -27,6 +27,7 @@ export class ProfileAdminComponent implements OnInit {
   showSolicitudUp: boolean = false;
   showCoursesUp: boolean = false;
   showforumUp: boolean = false;
+  showAnswerForumUp: boolean = false;
 
   constructor(
     public userService: UserService,
@@ -152,6 +153,7 @@ export class ProfileAdminComponent implements OnInit {
     return;
   }
 
+
   showCoursesUpFun() {
     return this.showCoursesUp == false
       ? (this.showCoursesUp = true)
@@ -170,6 +172,52 @@ export class ProfileAdminComponent implements OnInit {
 
     return;
   }
+
+                        //forooooooooooooooooooooooooooooooooooooooo
+  /* showAnswerForumUpFun() {
+    return this.showAnswerForumUp = false;
+  }
+  indice:any = 0
+  upDateAnswerForum(ans:any) {
+    this.showAnswerForumUp = true;
+    this.forumService.selectedForum.ForumAnswers[ans.indice] = ans
+    return this.indice = ans.indice
+  }
+
+  addForumAns(_id:any, index:any, form: NgForm) {
+    console.log(form.value);
+    Swal.fire({
+      title: '¿Estas seguro desea actualizar el comentario?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Sí',
+      confirmButtonColor: '#ffc107',
+      denyButtonText: `No`,
+      denyButtonColor: '#ffc107',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.forumService.updateAnswer(_id, index, form.value).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              title: 'El usuario ha sido actualizado actualizado',
+              confirmButtonColor: '#ffc107',
+            });
+            this.getForum();
+            this.resetForm();
+          },
+          error: (err: any) => {
+            console.log(err);
+          },
+          complete: () => {
+            console.log('complete');
+          },
+        })
+      
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios no han sido guardado', '', 'info');
+      }
+    });
+  } */
 
   closeOthers() {
     if (this.showTable == true) {

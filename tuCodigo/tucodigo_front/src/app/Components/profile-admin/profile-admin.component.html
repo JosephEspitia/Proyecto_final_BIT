@@ -125,7 +125,7 @@
               {{ cont.contactName }}
             </td>
             <td data-label="Email" class="text-white">
-              {{ cont.contactEmail }}3
+              {{ cont.contactEmail }}
             </td>
             <td data-label="Teléfono" class="text-white">
               {{ cont.contactPhone }}
@@ -200,36 +200,57 @@
                 Editar</a
               >
             </td>
-            <td data-label="Contenido de Foro" class="text-white main-ans">
+            <td data-label="Contenido de Foro" class="text-white">
               {{ forum.ForumContent }}
             </td>
             <td
-              *ngFor="let ans of forum.ForumAnswers"
+              *ngFor="let ans of forum.ForumAnswers; let indice = index"
               data-label="Comentarios"
-              class="text-white d-flex d-block main-ans2 gap-2"
+              class="text-white d-flex d-block gap-2 border-top"
             >
               {{ ans }}
+             <span class=" ms-auto">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-pencil-square main-but-ed"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-                />
-              </svg>
+               
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-pencil-square main-but-ed"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+              />
+            </svg>
+             </span>
             </td>
+            
           </tr>
         </tbody>
       </table>
     </div>
+   <!--  <div *ngIf="showAnswerForumUp">
+      <form #formAnswer="ngForm" (ngSubmit)="(addForumAns(forumService.selectedForum._id , forumService.selectedForum.ForumAnswers[indice] ,formAnswer))" class="main-form">
+        <textarea
+          [(ngModel)]="forumService.selectedForum.ForumAnswers[indice]"
+          #ForumAnswers${indice}
+          name=`ForumAnswers${indice}`
+          id=""
+          cols="30"
+          rows="10"
+        >
+        </textarea>
+        <button (click)="showAnswerForumUpFun()" class="btn btn-danger">
+          cerrar
+        </button>
+        <button class="btn btn-light">Enviar</button>
+      </form>
+    </div> -->
 
     <!-- fin solicitud de foros -->
 
@@ -420,8 +441,7 @@
   #formAdminForum="ngForm"
   (ngSubmit)="editForum(forumService.selectedForum._id, formAdminForum)"
   *ngIf="showforumUp"
-  class="animated fadeInDown
-   bg-medium-tucode main-form d-flex flex-column p-3"
+  class="animated fadeInDown bg-medium-tucode main-form d-flex flex-column p-3"
 >
   <h3 class="text-white text-center">Editar Entrada</h3>
   <div class="m-2">
@@ -484,5 +504,4 @@
     <button class="btn btn-light m-2">Envíar</button>
     <button (click)="showforumUpFun()" class="btn btn-light m-2">Cerrar</button>
   </div>
- 
 </form>
