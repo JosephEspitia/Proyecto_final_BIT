@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 
 
-const coursesControllers = require("../controllers/courses.controllers");
+const coursesControllers = require("../controllers/courses");
 
-router.get("/get-curses", coursesControllers.getCourses);
-router.get("/get-curse/:numCurse", coursesControllers.getOneCourses);
-router.post("/create-curse", coursesControllers.createCourse);
+router.get("/get-course", coursesControllers.getCurses);
+router.get("/get-curse/:numCurse", coursesControllers.getOneCurse);
+router.post("/create-curse", coursesControllers.createCurses);
 /* router.delete("/delete-course/", coursesControllers.deleteCourses); */
 /* router.put("/update-course/:courseId", coursesControllers.updateCourses); */
 
