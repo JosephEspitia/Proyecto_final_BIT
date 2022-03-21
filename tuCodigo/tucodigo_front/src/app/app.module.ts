@@ -20,7 +20,9 @@ import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 import { CommonModule } from '@angular/common';
 import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
 import { AuthGuard } from './auth.guard';
-
+import { NotFountComponent } from './not-fount/not-fount.component';
+import { RoutGuardGuard } from './rout-guard.guard';
+import {JwtInterceptorInterceptor} from './jwt-interceptor.interceptor'
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { AuthGuard } from './auth.guard';
     ForumComponent,
     ContactComponent,
     ForumAnsComponent,
-    ProfileAdminComponent
+    ProfileAdminComponent,
+    NotFountComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,12 @@ import { AuthGuard } from './auth.guard';
   ],
   providers: [
     AuthGuard,
+    RoutGuardGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -59,7 +59,7 @@ export class UserService {
     }
 
     adminUser() {
-        const { permissions } = this.getDataFromToken()
+        const { permissionsAdmin } = this.getDataFromToken()
     }
     
     getToken() {
@@ -72,7 +72,4 @@ export class UserService {
         return decoded
       }
 
-  /* obtenerUsuarios () {
-    let params = new HttpParams().append('')
-  } */
 }

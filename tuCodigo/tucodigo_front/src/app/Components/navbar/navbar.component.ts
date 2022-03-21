@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   }
 
   goProfile() {
-    this.router.navigate([`/profile-student/${this.userService.getDataFromToken().user_id}`])
+      this.router.navigate([`/profile-student/${this.userService.getDataFromToken().user_id}`])
   }
 
   goCourse() {
@@ -49,5 +49,14 @@ export class NavbarComponent implements OnInit {
   noLoged() {
     this.userService.loggedOut();
   }  
+
+  verifyUser() {
+      if (this.userService.getDataFromToken().permissionsAdmin) {
+        this.router.navigate([`/profile-admin`])
+      } else {
+        this.router.navigate(['/not-found'])
+      }
+   }
+
 }
 

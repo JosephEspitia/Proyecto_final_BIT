@@ -1,9 +1,9 @@
 <div class="container-fluid bg-register">
-  <div class="row shadow-lg rounded mt-5 p-5 d-">
+  <div class="row p-5 d-">
     <div class="col-md-4 shadow-lg p-3 ms-5">
       <h2 class="text-center mb-4 mt-5 text-white animated pulse">Ingrea tus datos</h2>
 
-      <form #userForm="ngForm" (ngSubmit)="registerUser(userForm)" class="mb-3 ">
+      <form #userForm="ngForm" (ngSubmit)="registerUser(userForm)" class="mb-3 d-flex flex-column ">
         <div class="mb-3 animated bounceInRight">
           <label for="name" class="form-label text-white">Nombres</label>
           <input
@@ -78,7 +78,7 @@
         />
         
         <button
-          class="btn btn-warning mt-4 d-flex align-items-center justify-content-center"
+          class="btn btn-warning mt-4 align-self-center"
         >
           Enviar información
         </button>

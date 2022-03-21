@@ -235,10 +235,7 @@ export class ProfileAdminComponent implements OnInit {
   }
 
   ansContact(_id: any, form: NgForm) {
-    /* const {contactAnswer} = form.value
-      console.log(_id);
-      console.log(form.value) */
-
+  
     this.contactService.putContact(_id, form.value).subscribe({
       next: (res: any) => {
         Swal.fire({
@@ -252,6 +249,7 @@ export class ProfileAdminComponent implements OnInit {
       },
       complete: () => {
         console.log('complete');
+        this.showSolicitudUpFun()
       },
     });
   }

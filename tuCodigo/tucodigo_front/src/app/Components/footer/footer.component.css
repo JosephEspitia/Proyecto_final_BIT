@@ -1,12 +1,13 @@
 .footer-dark {
-    padding:20px 0;
+    padding:10px 0;
     color:#f0f9ff;
-    background-color:#0B3C5D;
+    background-color:#ffc107;
+    /* position: sticky; */
   }
   
   .footer-dark h3 {
     margin-top:0;
-    margin-bottom:12px;
+    /* margin-bottom:6px */;
     font-weight:bold;
     font-size:16px;
   }
@@ -22,7 +23,7 @@
   .footer-dark ul a {
     color:inherit;
     text-decoration:none;
-    opacity:0.6;
+   /*  opacity:0.6; */
   }
   
   .footer-dark ul a:hover {
@@ -47,7 +48,7 @@
   }
   
   .footer-dark .item.text p {
-    opacity:0.6;
+   /*  opacity:0.6; */
     margin-bottom:0;
   }
   
@@ -64,8 +65,8 @@
   
   .footer-dark .item.social > a {
     font-size:20px;
-    width:36px;
-    height:36px;
+    width:26px;
+    height:26px;
     line-height:36px;
     display:inline-block;
     text-align:center;
@@ -83,7 +84,8 @@
   .footer-dark .copyright {
     text-align:center;
     padding-top:24px;
-    opacity:0.3;
+    opacity:0.6;
+    color: black;
     font-size:13px;
     margin-bottom:0;
   }

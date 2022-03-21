@@ -1,12 +1,20 @@
-/* .main-form {
-    border-radius: 2px;
-    border: solid 3px #ffc107;
-    position:fixed;
-    margin: auto;
-    width:fit-content;
-    margin-left: 40%;
-    margin-top: 30%;
-} */
+
+.main-menu {
+    width: fit-content;
+    position: relative;
+    
+}
+
+.main-ans {
+    width: 150px !important;
+}
+.main-ans2 {
+    width: 300px !important;
+}
+
+.main-but-ed {
+    cursor: pointer;
+}
 
 .main-form {
     position:fixed !important; /* lo deja fijo en un parte de la pantalla */
@@ -23,7 +31,7 @@
 }
 
 .main-table {
-    /* width: 100%; */
+    width: 70vw;
     border-collapse: collapse;
 }
 
@@ -63,10 +71,13 @@
 
     .main-menu {
         height: fit-content !important;
-        width: 100% !important;
+        width: 100vw !important;
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
+        align-items: center!important;
+        justify-content: center;
+        margin: 0 !important;
         
     }
     .main-ul {
