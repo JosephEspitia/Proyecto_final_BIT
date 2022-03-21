@@ -19,6 +19,7 @@ import { ContactComponent } from './Components/contact/contact.component';
 import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 import { CommonModule } from '@angular/common';
 import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.
     FormsModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgxTypedJsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

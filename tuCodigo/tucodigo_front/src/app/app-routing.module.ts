@@ -14,6 +14,7 @@ import { ProfileStudentComponent } from './Components/profile-student/profile-st
 import { RegisterComponent } from './Components/register/register.component';
 import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
 
+
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component:  LoginComponent},
@@ -29,11 +30,13 @@ const routes: Routes = [
   { path: 'forumAns/:id', component: ForumAnsComponent },
 
   { path: 'profile-admin', component: ProfileAdminComponent}
-  
+
 ];
 
 @NgModule({
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }

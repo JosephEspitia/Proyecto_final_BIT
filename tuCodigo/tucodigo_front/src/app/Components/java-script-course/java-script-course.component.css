@@ -1,0 +1,118 @@
+.flexx{
+  flex-wrap: wrap;
+}
+
+
+.W-list{
+  width: 70%
+}
+
+.border{
+  border: none;
+  border: solid;
+
+}
+.lineTop{
+  content: '';
+  height: 30%;
+  width: 2px;
+
+  background-color:rgb(77, 65, 65);
+  top: 0;
+  left: 39px;
+  position: absolute;
+
+}
+.lineBoton{
+  content: '';
+  height: 30%;
+  width: 2px;
+
+  background-color:rgb(77, 65, 65);
+  top: 75%;
+  left: 39px;
+  position: absolute;
+
+}
+.absolut{
+  left: 148px;
+  top: 59%;
+  position: absolute;
+}
+.AltA{
+  height: 4rem;
+}
+
+/* Start: Video Responsive */
+.video1{
+  border: 3px solid blue;
+  height: 0px;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+.videos{
+  border: 3px solid blue;
+  height: 0px;
+  padding-bottom: 56.25%;
+  position: relative;
+
+}
+
+.videos iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.video1 iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.videos-wrapper{
+  width: 100%;
+  margin: auto;
+  border: 3px solid red;
+
+}
+
+.video1-wrapper{
+  width: 100%;
+  margin: auto;
+}
+
+.textt{
+  background-color: aliceblue;
+}
+
+@media screen and (min-width: 1000px){
+  .video1-wrapper{
+    width: 70%;
+  }
+  .videos-wrapper{
+    width: 70%;
+  }
+
+}
+@media screen and (max-width: 800px){
+  .W-list{
+    width: 100%;
+  }
+
+
+
+}
+
+@media screen and (max-width: 1000px){
+  .textt{
+    display: none;
+  }
+
+}
+
+
+/* End: Video Responsive */
