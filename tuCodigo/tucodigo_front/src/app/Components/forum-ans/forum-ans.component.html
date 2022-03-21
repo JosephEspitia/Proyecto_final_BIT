@@ -46,13 +46,16 @@
     </div>
 </section>
 
-<form class="m-5 animated fadeInDown main-form" style=" width: 50%; height: 190px" #textAnswer="ngForm" *ngIf="popupAnswer">
+<form class="m-5 animated fadeInDown main-form d-flex flex-column" style=" width: 50%; height: 190px" #textAnswer="ngForm" *ngIf="popupAnswer">
    
     <div  class="form-group">
-         <textarea class="fs-4 m-2" type="text"  style=" width: 95%; height: 100px; background-color:#83bfe2;" name="textAnswer" #textAnswer="ngModel" placeholder="Escribe tu aporte de respuesta aquí"
+         <textarea class="fs-4 m-2" type="text"  style=" resize: none; width: 95%; height: 100px; background-color:#83bfe2;" name="textAnswer" #textAnswer="ngModel" placeholder="Escribe tu aporte de respuesta aquí"
             [(ngModel)]="forumService.selectedForum.answerContent"></textarea>
     </div>
-    <div></div>
-    <a class="btn btn-warning m-2" style="color: #1D2731; font-weight: bold;border-color: antiquewhite;"
-        (click)="updateAnswer(idForum,textAnswer); popupAnswerF()">enviar respuesta</a>
+    <div class="align-self-center">
+        <a class="btn btn-warning m-2" style="color: #1D2731; font-weight: bold;border-color: antiquewhite;"
+        (click)="updateAnswer(idForum,textAnswer); popupAnswerF()">Enviar</a>
+        <a class=" btn btn-warning m-2" style="color: #1D2731; font-weight: bold;border-color: antiquewhite;" (click)="popupAnswerF()">Cerrar</a>
+    </div>
+    
 </form>

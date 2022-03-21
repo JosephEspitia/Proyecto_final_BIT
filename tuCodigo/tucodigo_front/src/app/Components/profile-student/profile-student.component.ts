@@ -23,14 +23,10 @@ export class ProfileStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers()
+    
     this.idStudent = window.location.pathname.split(`/`)[2]    
     console.log(this.idStudent)
     this.getOneUser(this.idStudent)
-
-  
-    this.idStudent = window.location.pathname.split(`/`)[2]
-    this.getUsers()
     
   }
 
