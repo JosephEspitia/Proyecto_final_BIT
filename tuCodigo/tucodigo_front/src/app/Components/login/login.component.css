@@ -15,3 +15,7 @@
     border-left: 10px solid #ffc107;
     background-color: white;
 }
+.main-container {
+    height: 68vh;
+    width: 100vw;
+}

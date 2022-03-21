@@ -5,8 +5,8 @@ const userSchema = new Schema(
     {
     name: {type:String, requires:true},
     lastName:{type:String, requires:true},
-    photoUser:{type:String, require:false, default:`imagen no disponible`},
-    email: {type:String, requires:true},
+    photoUser:{type:String, require:false, default:`https://bootdey.com/img/Content/avatar/avatar6.png`},
+    email:{type:String, require:true},
     password: {type:String, requires:true},
     passwordConfirm: {type:String, requires:true},
     actualCourse: {type:String, requires:true},
