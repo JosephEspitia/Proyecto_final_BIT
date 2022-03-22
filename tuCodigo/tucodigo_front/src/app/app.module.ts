@@ -23,6 +23,7 @@ import { AuthGuard } from './auth.guard';
 import { NotFountComponent } from './not-fount/not-fount.component';
 import { RoutGuardGuard } from './rout-guard.guard';
 import {JwtInterceptorInterceptor} from './jwt-interceptor.interceptor'
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {JwtInterceptorInterceptor} from './jwt-interceptor.interceptor'
     FormsModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgxTypedJsModule
   ],
   providers: [
     AuthGuard,

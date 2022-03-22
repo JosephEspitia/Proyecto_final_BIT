@@ -17,6 +17,7 @@ import { AuthGuard } from './auth.guard';
 import { NotFountComponent } from './not-fount/not-fount.component';
 import { RoutGuardGuard } from './rout-guard.guard';
 
+
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component:  LoginComponent, canActivate:[RoutGuardGuard]},
@@ -43,7 +44,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }
