@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CourseService {
   selectCurses: Curses;
+  /* url_api = `${environment.API_URL}/courses`; */
   url_api = `${environment.API_URL}/courses`;
 
   constructor(public http: HttpClient) {
@@ -15,13 +16,9 @@ export class CourseService {
   }
 
   getEjercise() {
-    /*   return this.http.get('http://localhost:3000/api/products/get-curses') */
-   /*  return this.http.get('http://localhost:3000/api/courses/get-curses'); */
    return this.http.get(`${this.url_api}/get-curses`)
   }
   getOneEjercice(num: number) {
-    /* return this.http.get(`http://localhost:3000/api/products/get-curse/${num}`) */
-   /*  return this.http.get(`http://localhost:3000/api/courses/get-curse/${num}`); */
    return this.http.get(`${this.url_api}/get-curse/${num}`)
   }
 }

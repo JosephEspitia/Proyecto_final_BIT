@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+/* import { CourseService } from 'src/app/Services/couses.service'; */
 import { CourseService } from 'src/app/Services/couses.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class CssCourseComponent implements OnInit {
   ngOnInit(): void {
     this.link = 1;
     /* this.cursoActive = true; */
+   
   }
   curso(num: number) {
     this.link = num;

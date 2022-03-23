@@ -38,8 +38,27 @@ const createCurses = async (req, res) => {
   }
 };
 
+const deleteCourses = async (req, res) => {
+  const id = req.params.courseId;
+    await Courses.findByIdAndDelete(id);
+    res.status(200).json({ msj: "Curso eliminado", user: req.tuCodigoCom });
+
+};
+
+const updateCourses = async (req, res) => {
+  try {
+    const id = req.params.coursesId;
+    const updated = await Courses.findByIdAndUpdate(id, { $set: req.body });
+    res.status(201).json(updated);
+  } catch (error) {
+    res.status(201).json({ msj: "Actualizacion fallida", error });
+  }
+};
+
 module.exports = {
   getCurses,
   getOneCurse,
   createCurses,
+  deleteCourses,
+  updateCourses
 };
