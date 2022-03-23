@@ -295,6 +295,38 @@
 <section class="d-flex justify-content-center bg-medium-tucode">
   <h2 class="text-white p-5">Prueba tus Conocimientos aprendidos</h2>
   <div class="p-5">
-    <a class="btn btn-warning">Iniciar Test</a>
+    <a class="btn btn-warning" (click)="CursoActive()">Iniciar Test</a>
   </div>
+</section>
+
+<section class="d-flex justify-content-center bg-medium-tucode" *ngIf="numeroCurso>=1">
+  <div class="p-5 d-flex" >
+    <h4 class="text-white">
+      1. Bienvenido al primer ejercicio de JavaScript
+    </h4>
+  </div>
+</section>
+
+
+<section class="d-flex justify-content-center bg-medium-tucode p-5" *ngIf="numeroCurso>=1">
+  <form #consola="ngForm">
+  <textarea
+    style="resize: none;"
+    name="consola"
+    id=""
+    cols="50"
+    rows="5"
+    class="bg-bluedark-tucode font-yellow-tucode p-2"
+    #ejercise="ngModel"
+    [(ngModel)]="courseService.selectCurses.ejercise"
+  ></textarea>
+
+
+
+</form>
+
+
+
+<section class="d-flex justify-content-center bg-medium-tucode p-5">
+  <a class="btn btn-warning">Comprobar</a>
 </section>
