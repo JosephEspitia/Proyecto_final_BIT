@@ -62,7 +62,7 @@ export class CssCourseComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Haz Culminado el Curso Con exito!',
+            title: 'Has Culminado el Curso Con exito!',
             showConfirmButton: false,
             timer: 3000,
           });
@@ -71,7 +71,7 @@ export class CssCourseComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Ejercicio no aprovado, verificar Estructura',
+            title: 'Ejercicio no aprobado, verificar Estructura',
             text: '.nombre { metodo: argumento } ;',
             showConfirmButton: true,
 
