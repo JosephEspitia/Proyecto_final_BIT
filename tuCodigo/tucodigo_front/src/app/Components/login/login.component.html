@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div
+  class="main-container bg-login d-flex align-items-center justify-content-center flex-column"
+>
+  <div class="logg">
+    <h1 class="animated fadeInDown">Iniciar Sesion</h1>
+
+    <form
+      class="animated fadeInUp"
+      #loginForm="ngForm"
+      (ngSubmit)="login(loginForm)"
+    >
+      <div class="mb-3 animated bounceInLeft">
+        <label for="name" class="form-label">Email</label>
+        <input
+          required="true"
+          type="text"
+          class="form-control"
+          aria-describedby="emailHelp"
+          name="email"
+          #email="ngModel"
+          [(ngModel)]="userService.selectedUser.email"
+        />
+      </div>
+
+      <div class="mb-3 animated bounceInLeft">
+        <label for="name" class="form-label">Contraseña</label>
+        <input
+          required="true"
+          type="password"
+          class="form-control"
+          aria-describedby="emailHelp"
+          name="password"
+          #password="ngModel"
+          [(ngModel)]="userService.selectedUser.password"
+        />
+      </div>
+
+      <button class="btn btn-warning ms-5 ms-5">Iniciar sesion</button>
+    </form>
+  </div>
+</div>

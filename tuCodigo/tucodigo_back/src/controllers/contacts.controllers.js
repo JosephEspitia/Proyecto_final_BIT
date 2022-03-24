@@ -27,9 +27,31 @@ const getOneRequest = async (req, res) => {
     }
   };
 
+  const deleteRequest = async(req,res)=> {
+    try {
+      const id = req.params._id;
+    await Contacts.findByIdAndDelete(id);
+    res.status(200).json({msj: 'Mensaje eliminado'});
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const upDateRequest= async(req, res)=> {
+try {
+  const id = req.params.contactId;
+  console.log(id);
+  const upDate = await Contacts.findByIdAndUpdate(id, {$set:req.body});
+  res.status(200). json(upDate);
+} catch (error) {
+  console.log(error)
+}
+  }
+
   module.exports = {
       
       getRequest,
       getOneRequest,
-      createRequest
+      createRequest,
+      deleteRequest,
+      upDateRequest
   }

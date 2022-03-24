@@ -9,12 +9,18 @@ import { HtmlCourseComponent } from './Components/html-course/html-course.compon
 import { JavaScriptCourseComponent } from './Components/java-script-course/java-script-course.component';
 import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ProfileAdminComponent } from './Components/profile-admin/profile-admin.component';
 import { ProfileStudentComponent } from './Components/profile-student/profile-student.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { ForumAnsComponent } from './Components/forum-ans/forum-ans.component';
+import { AuthGuard } from './auth.guard';
+import { NotFountComponent } from './not-fount/not-fount.component';
+import { RoutGuardGuard } from './rout-guard.guard';
+
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
-  { path: 'login', component:  LoginComponent},
+  { path: 'login', component:  LoginComponent, canActivate:[RoutGuardGuard]},
   { path: 'register', component: RegisterComponent },
   { path: 'css-course', component: CssCourseComponent },
   { path: 'footer', component: FooterComponent },
@@ -23,12 +29,24 @@ const routes: Routes = [
   { path: 'html-course', component: HtmlCourseComponent },
   { path: 'java-script-course', component: JavaScriptCourseComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'profile-student', component: ProfileStudentComponent },
+  { path: 'profile-student/:_id', 
+  component: ProfileStudentComponent,
+  canActivate:[AuthGuard]
+},
+  { path: 'forumAns/:id', component: ForumAnsComponent},
+  { path: 'profile-admin', 
+  component: ProfileAdminComponent,
+  canActivate: [AuthGuard]
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: NotFountComponent }
   
 ];
 
 @NgModule({
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }
